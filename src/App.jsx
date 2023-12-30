@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import Sidebar from "./components/Sidebar.jsx";
 import Add_Do from "./pages/Add_Do.jsx";
 import Add_Agreement from "./pages/Agreement.jsx";
@@ -72,88 +73,94 @@ const App = () => {
   };
 
   return (
-    <BrowserRouter>
-      {isLoggedIn ? (
-        <Sidebar>
+    <>
+      <BrowserRouter>
+        {isLoggedIn ? (
+          <Sidebar>
+            <Routes>
+              <Route path="/Cashdetail" element={<Cashdetail />} />
+              <Route path="/Ricepurchased" element={<Ricepurchased />} />
+              <Route path="/Otherawak" element={<Otherawak />} />
+              <Route path="/Otherjawak" element={<Otherjawak />} />
+              <Route path="/Bhusi" element={<Bhusi />} />
+              <Route path="/Huskjawak" element={<Huskjawak />} />
+              <Route path="/Nakkhijawak" element={<Nakkhijawak />} />
+              <Route path="/Branjawak" element={<Branjawak />} />
+              <Route path="/Brokenjawak" element={<Brokenjawak />} />
+              <Route path="/Lotnumbermaster" element={<Lotnumbermaster />} />
+              <Route
+                path="/Dhanricesocietiesrate"
+                element={<Dhanricesocietiesrate />}
+              />
+              <Route path="/Ricedeposit" element={<Ricedeposit />} />
+              <Route
+                path="/Transportermaster"
+                element={<Transportermaster />}
+              />
+              <Route path="/Mohanfoodpaddy" element={<Mohanfoodpaddy />} />
+              <Route path="/Dhantransporting" element={<Dhantransporting />} />
+              <Route path="/Frk" element={<Frk />} />
+              <Route path="/Dalalidhan" element={<Dalalidhan />} />
+              <Route path="/Sudapatrak" element={<Sudapatrak />} />
+              <Route path="/Paddysales" element={<Paddysales />} />
+              <Route path="/Dopanding" element={<Dopanding />} />
+              <Route path="/Addricemill" element={<Addricemill />} />
+              <Route path="/Dhan_Awak" element={<Dhan_Awak />} />
+              <Route path="/Add_Do" element={<Add_Do />} />
+              <Route path="/Add_Agreement" element={<Add_Agreement />} />
+              <Route path="/Add_New_Society" element={<Add_New_Society />} />
+              <Route path="/Add_kochia" element={<Kochia />} />
+              <Route
+                path="/Add_New_Transporter"
+                element={<Add_New_Transporter />}
+              />
+              <Route path="/Add_New_Truck" element={<Add_New_Truck />} />
+              <Route path="/View_Agreement" element={<View_Agreement />} />
+              <Route path="/View_Truck" element={<View_Truck />} />
+              <Route path="/View_Transporter" element={<View_Transporter />} />
+              <Route path="/View_Societies" element={<View_Societies />} />
+              <Route path="/View_Dhan_Awak" element={<View_Dhan_Awak />} />
+              <Route path="/View_RiceDeposit" element={<View_RiceDeposit />} />
+              <Route path="/View_Dalali_Dhan" element={<View_Dalali_Dhan />} />
+              <Route path="/View_broken_jawak" element={<ViewBrokenjawak />} />
+              <Route path="/View_RiceMill" element={<View_RiceMill />} />
+              <Route path="/View_AddDo" element={<View_AddDo />} />
+              <Route path="/Add_Warehouse" element={<Add_Warehouse />} />
+              <Route path="/View_Warehouse" element={<View_Warehouse />} />
+              <Route path="/View_Kochia" element={<View_Kochia />} />
+              <Route path="/View_Frk" element={<View_Frk />} />
+              <Route path="/View_SudaPatrak" element={<View_SudaPatrak />} />
+              <Route path="/View_Dopending" element={<View_Dopending />} />
+              <Route
+                path="/View_DhanTransporting"
+                element={<View_DhanTransporting />}
+              />
+              <Route path="/Add_Party" element={<Add_Party />} />
+              <Route path="/View_Party" element={<View_Party />} />
+              <Route path="/View_OtherAwak" element={<View_OtherAwak />} />
+              <Route path="/View_OtherJawak" element={<View_OtherJawak />} />
+              <Route path="/Add_Broker" element={<Add_Broker />} />
+              <Route path="/View_Broker" element={<View_Broker />} />
+              <Route path="/View_Husk" element={<View_Husk />} />
+              <Route path="/View_Nakkhi" element={<View_Nakkhi />} />
+              <Route path="/View_Bran" element={<View_Bran />} />
+              <Route path="/View_Bhushi" element={<View_Bhushi />} />
+              <Route path="/View_RiceByType" element={<View_RiceByType />} />
+              <Route path="/View_PaddyByType" element={<View_PaddyByType />} />
+              <Route path="/View_BardanaType" element={<View_BardanaType />} />
+              <Route path="/View_Cash_In_Out" element={<View_Cash_In_Out />} />
+            </Routes>
+          </Sidebar>
+        ) : (
           <Routes>
-            <Route path="/Cashdetail" element={<Cashdetail />} />
-            <Route path="/Ricepurchased" element={<Ricepurchased />} />
-            <Route path="/Otherawak" element={<Otherawak />} />
-            <Route path="/Otherjawak" element={<Otherjawak />} />
-            <Route path="/Bhusi" element={<Bhusi />} />
-            <Route path="/Huskjawak" element={<Huskjawak />} />
-            <Route path="/Nakkhijawak" element={<Nakkhijawak />} />
-            <Route path="/Branjawak" element={<Branjawak />} />
-            <Route path="/Brokenjawak" element={<Brokenjawak />} />
-            <Route path="/Lotnumbermaster" element={<Lotnumbermaster />} />
-            <Route
-              path="/Dhanricesocietiesrate"
-              element={<Dhanricesocietiesrate />}
-            />
-            <Route path="/Ricedeposit" element={<Ricedeposit />} />
-            <Route path="/Transportermaster" element={<Transportermaster />} />
-            <Route path="/Mohanfoodpaddy" element={<Mohanfoodpaddy />} />
-            <Route path="/Dhantransporting" element={<Dhantransporting />} />
-            <Route path="/Frk" element={<Frk />} />
-            <Route path="/Dalalidhan" element={<Dalalidhan />} />
-            <Route path="/Sudapatrak" element={<Sudapatrak />} />
-            <Route path="/Paddysales" element={<Paddysales />} />
-            <Route path="/Dopanding" element={<Dopanding />} />
-            <Route path="/Addricemill" element={<Addricemill />} />
-            <Route path="/Dhan_Awak" element={<Dhan_Awak />} />
-            <Route path="/Add_Do" element={<Add_Do />} />
-            <Route path="/Add_Agreement" element={<Add_Agreement />} />
-            <Route path="/Add_New_Society" element={<Add_New_Society />} />
-            <Route path="/Add_kochia" element={<Kochia />} />
-            <Route
-              path="/Add_New_Transporter"
-              element={<Add_New_Transporter />}
-            />
-            <Route path="/Add_New_Truck" element={<Add_New_Truck />} />
-            <Route path="/View_Agreement" element={<View_Agreement />} />
-            <Route path="/View_Truck" element={<View_Truck />} />
-            <Route path="/View_Transporter" element={<View_Transporter />} />
-            <Route path="/View_Societies" element={<View_Societies />} />
-            <Route path="/View_Dhan_Awak" element={<View_Dhan_Awak />} />
-            <Route path="/View_RiceDeposit" element={<View_RiceDeposit />} />
-            <Route path="/View_Dalali_Dhan" element={<View_Dalali_Dhan />} />
-            <Route path="/View_broken_jawak" element={<ViewBrokenjawak />} />
-            <Route path="/View_RiceMill" element={<View_RiceMill />} />
-            <Route path="/View_AddDo" element={<View_AddDo />} />
-            <Route path="/Add_Warehouse" element={<Add_Warehouse />} />
-            <Route path="/View_Warehouse" element={<View_Warehouse />} />
-            <Route path="/View_Kochia" element={<View_Kochia />} />
-            <Route path="/View_Frk" element={<View_Frk />} />
-            <Route path="/View_SudaPatrak" element={<View_SudaPatrak />} />
-            <Route path="/View_Dopending" element={<View_Dopending />} />
-            <Route
-              path="/View_DhanTransporting"
-              element={<View_DhanTransporting />}
-            />
-            <Route path="/Add_Party" element={<Add_Party />} />
-            <Route path="/View_Party" element={<View_Party />} />
-            <Route path="/View_OtherAwak" element={<View_OtherAwak />} />
-            <Route path="/View_OtherJawak" element={<View_OtherJawak />} />
-            <Route path="/Add_Broker" element={<Add_Broker />} />
-            <Route path="/View_Broker" element={<View_Broker />} />
-            <Route path="/View_Husk" element={<View_Husk />} />
-            <Route path="/View_Nakkhi" element={<View_Nakkhi />} />
-            <Route path="/View_Bran" element={<View_Bran />} />
-            <Route path="/View_Bhushi" element={<View_Bhushi />} />
-            <Route path="/View_RiceByType" element={<View_RiceByType />} />
-            <Route path="/View_PaddyByType" element={<View_PaddyByType />} />
-            <Route path="/View_BardanaType" element={<View_BardanaType />} />
-            <Route path="/View_Cash_In_Out" element={<View_Cash_In_Out />} />
+            <Route path="/" element={<Home onlogin={handleLogin} />} />
+            <Route path="/Log_in" element={<Log_in />} />
+            <Route path="/Signup" element={<Signup />} />
           </Routes>
-        </Sidebar>
-      ) : (
-        <Routes>
-          <Route path="/" element={<Home onlogin={handleLogin} />} />
-          <Route path="/Log_in" element={<Log_in />} />
-          <Route path="/Signup" element={<Signup />} />
-        </Routes>
-      )}
-    </BrowserRouter>
+        )}
+      </BrowserRouter>
+      <SpeedInsights />
+    </>
   );
 };
 
