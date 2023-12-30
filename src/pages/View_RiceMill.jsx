@@ -15,6 +15,7 @@ function View_RiceMill() {
             },
           }
         );
+
         setdata(response.data);
       } catch (error) {
         console.error("Error fetching rice mill data:", error);
