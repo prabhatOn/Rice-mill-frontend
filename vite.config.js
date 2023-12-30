@@ -8,3 +8,19 @@ export default defineConfig({
     chunkSizeWarningLimit: 1000 // Set your desired limit in kilobytes
   }
 })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
