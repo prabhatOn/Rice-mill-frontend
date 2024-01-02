@@ -7,12 +7,12 @@ import Inputbox from "../inputelement/Inputbox";
 // import Inputbox from "../inputelement/Inputbox";
 const Add_New_Transporter = () => {
   const [transporterData, setTransporterData] = useState({
-    rice_mill_name_id: "",
+    // rice_mill_name_id: "",
     transporter_name: "",
     transporter_phone_number: 0,
   });
   const initialData = {
-    rice_mill_name_id: "",
+    // rice_mill_name_id: "",
     transporter_name: "",
     transporter_phone_number: 0,
   };
@@ -32,7 +32,7 @@ const Add_New_Transporter = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/transporter/",
+        "https://139.84.133.223:3000/transporter/",
         transporterData,
         {
           headers: {
