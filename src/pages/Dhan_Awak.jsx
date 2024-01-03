@@ -652,7 +652,7 @@ const Dhan_Awak = () => {
                     <input
                       disabled
                       value={
-                        (DhanAwakData.society_transporting.transporting_rate =
+                        (DhanAwakData.transporting_rate =
                           societyData.transporting_rate || "")
                       }
                       // value={DhanAwakData.transporting_rate}
