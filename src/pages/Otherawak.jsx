@@ -6,6 +6,7 @@ import Inputbox from "../inputelement/Inputbox";
 import axios from "axios";
 import SelectInput from "../inputelement/Selectinput";
 const Otherawak = () => {
+  const apiKey = import.meta.env.VITE_API_KEY;
   const [OtherawakData, setOtherawakData] = useState({
     rst_number: 0,
     date: "",
@@ -24,7 +25,12 @@ const Otherawak = () => {
     async function fetchMillData() {
       try {
         const All_data = await axios.get(
-          "http://139.84.133.223:3000/rice-truck-party-brokers"
+          "http://139.84.133.223:3000/rice-truck-party-brokers",
+          {
+            headers: {
+              "api-key": apiKey,
+            },
+          }
         );
 
         const data = All_data.data;
@@ -71,6 +77,7 @@ const Otherawak = () => {
         {
           headers: {
             "Content-Type": "application/json",
+            "api-key": apiKey,
           },
         }
       );
@@ -247,9 +254,9 @@ const Otherawak = () => {
                   label="Material"
                   name="material"
                   type="text"
-                  value={OtherawakData.rate}
+                  value={OtherawakData.material}
                   onChange={handleInputChange}
-                  placeholder="Enter Rate "
+                  placeholder="Enter material "
                 />
                 <Inputbox
                   label="NOS"

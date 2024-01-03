@@ -5,6 +5,7 @@ import Stacklocation from "../select_dropdown/Stacklocation";
 import Actualpaddy from "../select_dropdown/Actualpaddy";
 import Paddy from "../select_dropdown/Paddy";
 import Select from "react-select";
+import Ricemilldown from "../select_dropdown/Ricemilldown";
 import axios from "axios";
 const Dhan_Awak = () => {
   const customStyles = {
@@ -195,6 +196,7 @@ const Dhan_Awak = () => {
       stack_location: selectedOption.value,
       actual_paddy: selectedOption.value,
       type_of_paddy: selectedOption.value,
+      hopper_rice_mill_id: selectedOption.value,
     });
   };
 
@@ -880,22 +882,20 @@ const Dhan_Awak = () => {
                 <div className="mt-1">
                   <input
                     disabled
-                    value={
-                      (DhanAwakData.total_bag_weight =
-                        ((+DhanAwakData.jama_jute_22_23 +
-                          +DhanAwakData.ek_bharti_21_22 +
-                          +DhanAwakData.pds +
-                          +DhanAwakData.miller_purana +
-                          +DhanAwakData.kisan +
-                          +DhanAwakData.bardana_society) *
-                          0.58) /
-                          100 +
-                        ((+DhanAwakData.hdpe_22_23 +
-                          +DhanAwakData.hdpe_21_22 +
-                          +DhanAwakData.hdpe_21_22_one_use) *
-                          0.2) /
-                          100)
-                    }
+                    value={(DhanAwakData.total_bag_weight =
+                      ((+DhanAwakData.jama_jute_22_23 +
+                        +DhanAwakData.ek_bharti_21_22 +
+                        +DhanAwakData.pds +
+                        +DhanAwakData.miller_purana +
+                        +DhanAwakData.kisan +
+                        +DhanAwakData.bardana_society) *
+                        0.58) /
+                        100 +
+                      ((+DhanAwakData.hdpe_22_23 +
+                        +DhanAwakData.hdpe_21_22 +
+                        +DhanAwakData.hdpe_21_22_one_use) *
+                        0.2) /
+                        100).toFixed(2)}
                     onChange={handleInputChange}
                     type="number"
                     name="total_bag_weight"
@@ -953,7 +953,7 @@ const Dhan_Awak = () => {
                       value={(DhanAwakData.shortage =
                         DhanAwakData.mill_weight_quintals -
                         DhanAwakData.total_bag_weight -
-                        DhanAwakData.dm_weight).toFixed(4)}
+                        DhanAwakData.dm_weight).toFixed(2)}
                       onChange={handleInputChange}
                       type="number"
                       name="shortage"
@@ -986,45 +986,10 @@ const Dhan_Awak = () => {
                   </div>
                 </div>
                 <div>
-                  <label
-                    htmlFor="hopper_rice_mill_id"
-                    className="block text-sm font-medium leading-6 text-gray-900"
-                  >
-                    Select Rice Mill
-                  </label>
-                  <div className="mt-2">
-                    <Select
-                      styles={customStyles}
-                      name="hopper_rice_mill_id"
-                      options={
-                        DoOptions.do_number_data &&
-                        DoOptions.rice_mill_data.map((option) => ({
-                          label: option.rice_mill_name,
-                          value: option.rice_mill_id,
-                        }))
-                      }
-                      value={
-                        DhanAwakData.hopper_rice_mill_id
-                          ? {
-                              label: DoOptions.rice_mill_data.find(
-                                (option) =>
-                                  option.rice_mill_id ===
-                                  DhanAwakData.hopper_rice_mill_id
-                              ).rice_mill_name,
-                              value: DhanAwakData.hopper_rice_mill_id,
-                            }
-                          : null
-                      }
-                      onChange={(selectedOption) =>
-                        handleInputChange({
-                          target: {
-                            name: "hopper_rice_mill_id",
-                            value: selectedOption ? selectedOption.value : "",
-                          },
-                        })
-                      }
-                    />
-                  </div>
+                  <Ricemilldown
+                    value={DhanAwakData.hopper_rice_mill_id}
+                    onSelectChange={handleSelectChange}
+                  />
                 </div>
               </fieldset>
 
