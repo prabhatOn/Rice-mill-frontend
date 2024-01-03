@@ -39,7 +39,9 @@ const Actualpaddy = ({ onSelectChange }) => {
       <div className="mt-1 relative">
         <div className="relative inline-block text-left">
           <Select
-            onChange={onSelectChange}
+            onChange={(selectedOption) =>
+              onChange("actual_paddy", selectedOption.value)
+            }
             name="actual_paddy"
             options={ActualPaddy}
             placeholder="Select Actual Paddy"

@@ -14,7 +14,7 @@ const customStyles = {
   }),
 };
 
-const Ricemilldown = ({ onSelectChange }) => {
+const Ricemilldown = ({ value, onChange }) => {
   const Warehouse = [
     { label: "Purushotam Rice Mill", value: "PRM" },
     { label: "Dushyant Rice Mill", value: "DRM" },
@@ -25,17 +25,19 @@ const Ricemilldown = ({ onSelectChange }) => {
     <>
       <div className="flex justify-between">
         <label
-          htmlFor="stack_location"
+          htmlFor="hopper_rice_mill_id"
           className="block text-sm font-medium leading-6 text-gray-900"
         >
-          Stack Location
+          Hopper Location
         </label>
       </div>
       <div className="mt-1 relative">
         <div className="relative inline-block text-left">
           <Select
-            onChange={onSelectChange}
-            name="stack_location"
+            onChange={(selectedOption) =>
+              onChange("hopper_rice_mill_id", selectedOption.value)
+            }
+            name="hopper_rice_mill_id"
             className=""
             options={Warehouse}
             placeholder="Select location"

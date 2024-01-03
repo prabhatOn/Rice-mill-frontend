@@ -190,16 +190,6 @@ const Dhan_Awak = () => {
     }
   }, [DhanAwakData.society_id]);
 
-  const handleSelectChange = (selectedOption) => {
-    setFormData({
-      ...DhanAwakData,
-      stack_location: selectedOption.value,
-      actual_paddy: selectedOption.value,
-      type_of_paddy: selectedOption.value,
-      hopper_rice_mill_id: selectedOption.value,
-    });
-  };
-
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -211,7 +201,7 @@ const Dhan_Awak = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log(DhanAwakData);
+    console.log(DhanAwakData);
 
     try {
       const response = await fetch("http://139.84.133.223:3000/dhan-awak", {
@@ -907,14 +897,20 @@ const Dhan_Awak = () => {
                 <div>
                   <Paddy
                     value={DhanAwakData.type_of_paddy}
-                    onSelectChange={handleSelectChange}
+                    // onSelectChange={handleSelectChange}
+                    onChange={(name, value) =>
+                      handleInputChange({ target: { name, value } })
+                    }
                   />
                 </div>
 
                 <div>
                   <Actualpaddy
                     value={DhanAwakData.actual_paddy}
-                    onSelectChange={handleSelectChange}
+                    // onSelectChange={handleSelectChange}
+                    onChange={(name, value) =>
+                      handleInputChange({ target: { name, value } })
+                    }
                   />
                 </div>
               </div>
@@ -988,7 +984,10 @@ const Dhan_Awak = () => {
                 <div>
                   <Ricemilldown
                     value={DhanAwakData.hopper_rice_mill_id}
-                    onSelectChange={handleSelectChange}
+                    // onSelectChange={handleSelectChange}
+                    onChange={(name, value) =>
+                      handleInputChange({ target: { name, value } })
+                    }
                   />
                 </div>
               </fieldset>
@@ -1017,7 +1016,10 @@ const Dhan_Awak = () => {
                 <div>
                   <Stacklocation
                     value={DhanAwakData.stack_location}
-                    onSelectChange={handleSelectChange}
+                    onChange={(name, value) =>
+                      handleInputChange({ target: { name, value } })
+                    }
+                    // onSelectChange={handleSelectChange}
                   />
                 </div>
               </fieldset>

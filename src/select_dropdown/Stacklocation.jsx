@@ -37,7 +37,9 @@ const Stacklocation = ({ onSelectChange }) => {
       <div className="mt-1 relative">
         <div className="relative inline-block text-left">
           <Select
-            onChange={onSelectChange}
+            onChange={(selectedOption) =>
+              onChange("stack_location", selectedOption.value)
+            }
             name="stack_location"
             className=""
             options={Warehouse}
