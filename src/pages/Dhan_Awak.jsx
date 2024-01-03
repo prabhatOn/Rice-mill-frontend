@@ -652,10 +652,11 @@ const Dhan_Awak = () => {
                     <input
                       disabled
                       value={
-                        (societyData.society_transporting &&
-                          societyData.society_transporting[0]
-                            .transporting_rate) ||
-                        ""
+                        (DhanAwakData.transporting_rate =
+                          (societyData.society_transporting &&
+                            societyData.society_transporting[0]
+                              .transporting_rate) ||
+                          "")
                       }
                       onChange={handleInputChange}
                       type="number"
