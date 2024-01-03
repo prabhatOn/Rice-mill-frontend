@@ -36,7 +36,7 @@ const Add_Agreement = () => {
     async function fetchData() {
       try {
         const Agreement_response = await axios.get(
-          "http://localhost:8000/rice-mill",
+          "http://139.84.133.223:3000/rice-mill",
           {
             headers: {
               "api-key": apiKey,
@@ -70,7 +70,7 @@ const Add_Agreement = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/agreement/",
+        "http://139.84.133.223:3000/agreement/",
         agreementData,
         {
           headers: {
@@ -137,17 +137,14 @@ const Add_Agreement = () => {
               <SelectInput
                 label="Select Rice Mill"
                 name="select_mill_id"
-                options={
-                  AgreementOptions.rice_mill_data &&
-                  AgreementOptions.rice_mill_data.map((option) => ({
-                    label: option.rice_mill_name,
-                    value: option.rice_mill_id,
-                  }))
-                }
+                options={AgreementOptions.map((option) => ({
+                  label: option.rice_mill_name,
+                  value: option.rice_mill_id,
+                }))}
                 value={
                   agreementData.select_mill_id
                     ? {
-                        label: AgreementOptions.rice_mill_data.find(
+                        label: AgreementOptions.find(
                           (option) =>
                             option.rice_mill_id === agreementData.select_mill_id
                         ).rice_mill_name,

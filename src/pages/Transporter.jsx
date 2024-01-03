@@ -32,7 +32,7 @@ const Add_New_Transporter = () => {
 
     try {
       const response = await axios.post(
-        "https://139.84.133.223:3000/transporter/",
+        "http://139.84.133.223:3000/transporter/",
         transporterData,
         {
           headers: {
@@ -41,7 +41,7 @@ const Add_New_Transporter = () => {
         }
       );
 
-      if (response.ok) {
+      if (response.status >= 201 || response.status < 300) {
         // console.log("Transporter added successfully");
         toast.success("Transporter added successfully", {
           position: "top-right",

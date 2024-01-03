@@ -68,7 +68,7 @@ const Ricedeposit = () => {
     async function fetchMillData() {
       try {
         const rice_deposti_data = await axios.get(
-          "http://localhost:8000/rice-truck-transporter-ware-house",
+          "http://139.84.133.223:3000/rice-truck-transporter-ware-house",
           {
             headers: {
               "api-key": apiKey,
@@ -92,7 +92,7 @@ const Ricedeposit = () => {
     async function fetchwarehouseid() {
       try {
         const warehouse = await axios.get(
-          `http://localhost:8000/ware-house-data/${RicedepositData.ware_house_id}`,
+          `http://139.84.133.223:3000/ware-house-data/${RicedepositData.ware_house_id}`,
           {
             headers: {
               "api-key": apiKey,
@@ -120,7 +120,7 @@ const Ricedeposit = () => {
     async function fetchtrucktransporter() {
       try {
         const rice_do_number = await axios.get(
-          `http://localhost:8000/truck-transporter/${RicedepositData.transporter_name_id}`,
+          `http://139.84.133.223:3000/truck-transporter/${RicedepositData.transporter_name_id}`,
           {
             headers: {
               "api-key": apiKey,
@@ -161,7 +161,7 @@ const Ricedeposit = () => {
     // console.log(RicedepositData);
     try {
       const response = await axios.post(
-        "http://localhost:8000/rice-deposite/",
+        "http://139.84.133.223:3000/rice-deposite/",
         RicedepositData,
         {
           headers: {

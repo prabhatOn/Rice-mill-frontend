@@ -6,7 +6,7 @@ function View_Bhushi() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/other-bhushi-data", {
+      .get("http://139.84.133.223:3000/other-bhushi-data", {
         headers: {
           "api-key": apiKey,
         },

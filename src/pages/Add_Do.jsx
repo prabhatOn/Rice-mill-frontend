@@ -29,7 +29,7 @@ const Add_Do = () => {
     async function fetchMillData() {
       try {
         const Mill_response = await axios.get(
-          "http://localhost:8000/rice-agreement-transporter-truck-society-data",
+          "http://139.84.133.223:3000/rice-agreement-transporter-truck-society-data",
           {
             headers: {
               "api-key": apiKey,
@@ -73,7 +73,7 @@ const Add_Do = () => {
     async function fetchagrementData() {
       try {
         const agremennt_data = await axios.get(
-          `http://localhost:8000/rice-agreement-data/${DoData.select_mill_id}`,
+          `http://139.84.133.223:3000/rice-agreement-data/${DoData.select_mill_id}`,
           {
             headers: {
               "api-key": apiKey,
@@ -107,7 +107,7 @@ const Add_Do = () => {
     // console.log(DoData);
     try {
       const response = await axios.post(
-        "http://localhost:8000/add-do/",
+        "http://139.84.133.223:3000/add-do/",
         DoData,
         {
           headers: {

@@ -5,7 +5,7 @@ function View_Agreement() {
   const [data, setdata] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/agreements", {
+      .get("http://139.84.133.223:3000/agreements", {
         headers: {
           "api-key": apiKey,
         },

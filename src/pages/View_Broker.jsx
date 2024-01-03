@@ -5,7 +5,7 @@ function View_Broker() {
   const [data, setdata] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/broker-data", {
+      .get("http://139.84.133.223:3000/broker-data", {
         headers: {
           "api-key": apiKey,
         },

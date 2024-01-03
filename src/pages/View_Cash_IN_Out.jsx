@@ -5,7 +5,7 @@ function View_Cash_In_Out() {
   const [data, setdata] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/cash-in-out-data", {
+      .get("http://139.84.133.223:3000/cash-in-out-data", {
         headers: {
           "api-key": apiKey,
         },

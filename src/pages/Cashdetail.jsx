@@ -54,7 +54,7 @@ const Cashdetail = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/cash-in-out",
+        "http://139.84.133.223:3000/cash-in-out",
         CashdetailData,
         {
           headers: {

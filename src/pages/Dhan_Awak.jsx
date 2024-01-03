@@ -91,7 +91,7 @@ const Dhan_Awak = () => {
     async function fetchMillData() {
       try {
         const Mill_response = await axios.get(
-          "http://localhost:8000/rice-do-society-truck-transporter",
+          "http://139.84.133.223:3000/rice-do-society-truck-transporter",
           {
             headers: {
               "api-key": apiKey,
@@ -115,7 +115,7 @@ const Dhan_Awak = () => {
     async function fetchricedonumberData() {
       try {
         const truck_transporter = await axios.get(
-          ` http://localhost:8000/rice-do-number/${DhanAwakData.rice_mill_id}`,
+          ` http://139.84.133.223:3000/rice-do-number/${DhanAwakData.rice_mill_id}`,
           {
             headers: {
               "api-key": apiKey,
@@ -143,7 +143,7 @@ const Dhan_Awak = () => {
     async function fetchtrucktransporter() {
       try {
         const rice_do_number = await axios.get(
-          `http://localhost:8000/truck-transporter/${DhanAwakData.transporter_name_id}`,
+          `http://139.84.133.223:3000/truck-transporter/${DhanAwakData.transporter_name_id}`,
           {
             headers: {
               "api-key": apiKey,
@@ -187,7 +187,7 @@ const Dhan_Awak = () => {
     // console.log(DhanAwakData);
 
     try {
-      const response = await fetch("http://localhost:8000/dhan-awak", {
+      const response = await fetch("http://139.84.133.223:3000/dhan-awak", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

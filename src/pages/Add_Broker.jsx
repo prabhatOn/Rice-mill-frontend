@@ -30,7 +30,7 @@ const Add_Broker = () => {
     console.log(brokerdata);
     try {
       const response = await axios.post(
-        "http://localhost:8000/broker/",
+        "http://139.84.133.223:3000/broker/",
         brokerdata,
         {
           headers: {

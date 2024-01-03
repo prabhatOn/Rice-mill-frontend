@@ -1,14 +1,14 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 function View_RiceMill() {
-  const apiKey = import.meta.env.VITE_API_KEY;
   const [data, setdata] = useState([]);
   useEffect(() => {
+    const apiKey = import.meta.env.VITE_API_KEY;
     const fetchData = async () => {
       try {
         // Replace 'YOUR_API_KEY' with your actual API key
         const response = await axios.get(
-          "https://139.84.133.223:3000/rice-mill/",
+          "http://139.84.133.223:3000/rice-mill/",
           {
             headers: {
               "api-key": apiKey,

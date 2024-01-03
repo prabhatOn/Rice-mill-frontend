@@ -35,7 +35,7 @@ const Dopanding = () => {
     async function fetchMillData() {
       try {
         const Mill_response = await axios.get(
-          "http://localhost:8000/rice-do-society-truck-transporter",
+          "http://139.84.133.223:3000/rice-do-society-truck-transporter",
           {
             headers: {
               "api-key": apiKey,
@@ -59,7 +59,7 @@ const Dopanding = () => {
     async function fetchricedonumberData() {
       try {
         const truck_transporter = await axios.get(
-          `http://localhost:8000/rice-do-number/${DopandingData.rice_mill_id}`,
+          `http://139.84.133.223:3000/rice-do-number/${DopandingData.rice_mill_id}`,
           {
             headers: {
               "api-key": apiKey,
@@ -94,7 +94,7 @@ const Dopanding = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/do-panding",
+        "http://139.84.133.223:3000/do-panding",
         DopandingData,
         {
           headers: {

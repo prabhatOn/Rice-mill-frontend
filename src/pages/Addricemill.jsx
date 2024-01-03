@@ -25,6 +25,7 @@ const Addricemill = () => {
   };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    console.log(value);
     setAddricedata({
       ...Addricedata,
       [name]: value,
@@ -52,7 +53,7 @@ const Addricemill = () => {
     }
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com/add-rice-mill/",
+        "http://139.84.133.223:3000/add-rice-mill/",
 
         Addricedata,
         {

@@ -6,7 +6,7 @@ function View_Dhan_Awak() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/dhan-awak-data", {
+      .get("http://139.84.133.223:3000/dhan-awak-data", {
         headers: {
           "api-key": apiKey,
         },

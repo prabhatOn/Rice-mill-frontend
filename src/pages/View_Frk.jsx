@@ -5,7 +5,7 @@ function View_Frk() {
   const [data, setdata] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/frk-data", {
+      .get("http://139.84.133.223:3000/frk-data", {
         headers: {
           "api-key": apiKey,
         },

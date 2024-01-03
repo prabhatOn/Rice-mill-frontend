@@ -22,7 +22,7 @@ function View_BardanaType() {
     async function fetchData() {
       try {
         const Ricemil_response = await axios.get(
-          "http://localhost:8000/rice-mill",
+          "http://139.84.133.223:3000/rice-mill",
           {
             headers: {
               "api-key": apiKey,
@@ -57,7 +57,7 @@ function View_BardanaType() {
     async function fetchMillData() {
       try {
         const All_Mix_Data_response = await axios.get(
-          `http://localhost:8000/bardaha-data/${Riceid.select_mill_id}`,
+          `http://139.84.133.223:3000/bardaha-data/${Riceid.select_mill_id}`,
           {
             headers: {
               "api-key": "your_secret_api_key",

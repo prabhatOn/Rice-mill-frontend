@@ -30,7 +30,7 @@ const Paddysales = () => {
     async function fetchMillData() {
       try {
         const All_data = await axios.get(
-          "http://localhost:8000/rice-truck-party-brokers"
+          "http://139.84.133.223:3000/rice-truck-party-brokers"
         );
 
         const data = All_data.data;
@@ -48,7 +48,7 @@ const Paddysales = () => {
     async function fetchrst() {
       try {
         const rst_response = await axios.get(
-          "http://localhost:8000/dhan-awak-data"
+          "http://139.84.133.223:3000/dhan-awak-data"
         );
 
         const data = rst_response.data;
@@ -66,7 +66,7 @@ const Paddysales = () => {
     async function fetchTransporter() {
       try {
         const transporter_response = await axios.get(
-          "http://localhost:8000/trucks/"
+          "http://139.84.133.223:3000/trucks/"
         );
 
         const data = transporter_response.data;
@@ -91,7 +91,7 @@ const Paddysales = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/paddy-sale",
+        "http://139.84.133.223:3000/paddy-sale",
         paddysalesData,
         {
           headers: {

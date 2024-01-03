@@ -5,7 +5,7 @@ function View_Dopending() {
   const [data, setdata] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/do-panding-data", {
+      .get("http://139.84.133.223:3000/do-panding-data", {
         headers: {
           "api-key": apiKey,
         },

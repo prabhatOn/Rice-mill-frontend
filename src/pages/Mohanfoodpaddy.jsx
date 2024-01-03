@@ -28,7 +28,9 @@ const Mohanfoodpaddy = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await axios.get("http://localhost:8000/add-do-data");
+        const response = await axios.get(
+          "http://139.84.133.223:3000/add-do-data"
+        );
         const data = response.data;
         setdoData(data);
         // console.log(data);
@@ -44,7 +46,7 @@ const Mohanfoodpaddy = () => {
     async function fetchMillData() {
       try {
         const Mill_response = await axios.get(
-          "http://localhost:8000/rice-mill"
+          "http://139.84.133.223:3000/rice-mill"
         );
 
         const data = Mill_response.data;
@@ -63,7 +65,7 @@ const Mohanfoodpaddy = () => {
     async function fetchTransporter() {
       try {
         const transporter_response = await axios.get(
-          "http://localhost:8000/trucks/"
+          "http://139.84.133.223:3000/trucks/"
         );
 
         const data = transporter_response.data;
@@ -81,7 +83,7 @@ const Mohanfoodpaddy = () => {
     async function fetchData() {
       try {
         const transporter_response = await axios.get(
-          "http://localhost:8000/transporters/"
+          "http://139.84.133.223:3000/transporters/"
         );
 
         const data = transporter_response.data;
@@ -108,7 +110,7 @@ const Mohanfoodpaddy = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/mohan-food-paddy",
+        "http://139.84.133.223:3000/mohan-food-paddy",
         mohanfoodpaddyData,
         {
           headers: {

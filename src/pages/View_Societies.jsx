@@ -5,7 +5,7 @@ function ViewSocieties() {
   const [data, setdata] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/societies", {
+      .get("http://139.84.133.223:3000/societies", {
         headers: {
           "api-key": apiKey,
         },

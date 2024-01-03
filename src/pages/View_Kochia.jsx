@@ -5,7 +5,7 @@ function View_Kochia() {
   const [data, setdata] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/kochia-data", {
+      .get("http://139.84.133.223:3000/kochia-data", {
         headers: {
           "api-key": apiKey,
         },

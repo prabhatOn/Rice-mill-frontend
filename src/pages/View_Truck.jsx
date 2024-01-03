@@ -5,7 +5,7 @@ function ViewTruck() {
   const [data, setdata] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/trucks", {
+      .get("http://139.84.133.223:3000/trucks", {
         headers: {
           "api-key": apiKey,
         },

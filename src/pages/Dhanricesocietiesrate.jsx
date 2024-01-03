@@ -16,7 +16,7 @@ const Dhanricesocietiesrate = () => {
     async function fetchsociety() {
       try {
         const society_response = await axios.get(
-          "http://localhost:8000/societies/"
+          "http://139.84.133.223:3000/societies/"
         );
 
         const data = society_response.data;
@@ -44,7 +44,7 @@ const Dhanricesocietiesrate = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/dhan-rice-societies-rate",
+        "http://139.84.133.223:3000/dhan-rice-societies-rate",
         DhanricesocietiesrateData,
         {
           headers: {

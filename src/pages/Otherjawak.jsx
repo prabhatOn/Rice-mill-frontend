@@ -24,7 +24,7 @@ const Otherjawak = () => {
     async function fetchMillData() {
       try {
         const All_data = await axios.get(
-          "http://localhost:8000/rice-truck-party-brokers"
+          "http://139.84.133.223:3000/rice-truck-party-brokers"
         );
 
         const data = All_data.data;
@@ -66,7 +66,7 @@ const Otherjawak = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/other-jawak",
+        "http://139.84.133.223:3000/other-jawak",
         OtherjawakData,
         {
           headers: {

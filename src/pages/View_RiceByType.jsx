@@ -22,7 +22,7 @@ function View_PaddyByType() {
     async function fetchData() {
       try {
         const Ricemil_response = await axios.get(
-          "http://localhost:8000/rice-mill",
+          "http://139.84.133.223:3000/rice-mill",
           {
             headers: {
               "api-key": apiKey,

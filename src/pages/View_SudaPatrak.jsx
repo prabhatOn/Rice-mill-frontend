@@ -5,7 +5,7 @@ function View_SudaPatrak() {
   const [data, setdata] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/sauda-patrak-data", {
+      .get("http://139.84.133.223:3000/sauda-patrak-data", {
         headers: {
           "api-key": apiKey,
         },

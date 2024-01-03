@@ -6,7 +6,7 @@ function View_RiceDeposit() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:8000/rice-deposite-data", {
+      .get("http://139.84.133.223:3000/rice-deposite-data", {
         headers: {
           "api-key": apiKey,
         },

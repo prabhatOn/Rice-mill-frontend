@@ -23,7 +23,7 @@ const Add_New_Truck = () => {
     async function fetchData() {
       try {
         const transporter_response = await axios.get(
-          "http://localhost:8000/transporters/",
+          "http://139.84.133.223:3000/transporters/",
           {
             headers: {
               "api-key": apiKey,
@@ -63,7 +63,7 @@ const Add_New_Truck = () => {
 
     try {
       const response = await axios.post(
-        "http://localhost:8000/truck/",
+        "http://139.84.133.223:3000/truck/",
         truckData,
         {
           headers: {
@@ -74,7 +74,7 @@ const Add_New_Truck = () => {
 
       // console.log(response.data);
 
-      if (response.status === 200) {
+      if (response.status >= 201 || response.status < 300) {
         // console.log("Truck added successfully");
         toast.success("Truck added successfully", { autoClose: 2000 });
         resetForm();

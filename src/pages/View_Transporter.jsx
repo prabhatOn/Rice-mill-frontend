@@ -5,7 +5,7 @@ function ViewTransporter() {
   const [data, setdata] = useState([]);
   useEffect(() => {
     axios
-      .get("https://139.84.133.223:3000/transporters", {
+      .get("http://139.84.133.223:3000/transporters", {
         headers: {
           "api-key": apiKey,
         },

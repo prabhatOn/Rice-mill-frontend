@@ -5,7 +5,7 @@ function View_Party() {
   const [data, setdata] = useState([]);
   useEffect(() => {
     axios
-      .get("http://localhost:8000/party-data", {
+      .get("http://139.84.133.223:3000/party-data", {
         headers: {
           "api-key": apiKey,
         },

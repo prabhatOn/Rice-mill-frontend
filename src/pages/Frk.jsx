@@ -38,7 +38,7 @@ const Frk = () => {
     async function fetchMillData() {
       try {
         const Mill_response = await axios.get(
-          "http://localhost:8000/rice-mill",
+          "http://139.84.133.223:3000/rice-mill",
           {
             headers: {
               "api-key": apiKey,
@@ -62,7 +62,7 @@ const Frk = () => {
     async function fetchTransporter() {
       try {
         const transporter_response = await axios.get(
-          "http://localhost:8000/trucks/",
+          "http://139.84.133.223:3000/trucks/",
           {
             headers: {
               "api-key": apiKey,
@@ -94,12 +94,16 @@ const Frk = () => {
     // console.log(frkData);
 
     try {
-      const response = await axios.post("http://localhost:8000/frk", frkData, {
-        headers: {
-          "Content-Type": "application/json",
-          "api-key": apiKey,
-        },
-      });
+      const response = await axios.post(
+        "http://139.84.133.223:3000/frk",
+        frkData,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            "api-key": apiKey,
+          },
+        }
+      );
 
       if (response.status === 201 || response.status === 300) {
         // console.log("frk added successfully");

@@ -5,12 +5,12 @@ import axios from "axios";
 import Inputbox from "../inputelement/Inputbox";
 const Add_Warehouse = () => {
   const [Addwarehouse, Addwarehousedata] = useState({
-    ware_houes_name: "",
+    ware_house_name: "",
     ware_house_transporting_rate: 0,
     hamalirate: 0,
   });
   const initialData = {
-    ware_houes_name: "",
+    ware_house_name: "",
     ware_house_transporting_rate: 0,
     hamalirate: 0,
   };
@@ -19,6 +19,7 @@ const Add_Warehouse = () => {
   };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    console.log(value);
     Addwarehousedata({
       ...Addwarehouse,
       [name]: value,
@@ -29,7 +30,7 @@ const Add_Warehouse = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:8000/ware-house-transporting/",
+        "http://139.84.133.223:3000/ware-house-transporting/",
         Addwarehousedata,
         {
           headers: {
@@ -96,14 +97,14 @@ const Add_Warehouse = () => {
             <form className="space-y-6" onSubmit={handleSubmit}>
               <Inputbox
                 label="Ware House Name"
-                name="ware_houes_name"
+                name="ware_house_name"
                 placeholder="Enter Ware House Name"
-                value={Addwarehouse.ware_houes_name}
+                value={Addwarehouse.ware_house_name}
                 onChange={handleInputChange}
                 type="text"
               />
               <Inputbox
-                label="Ware House Name"
+                label="Ware House Transporting Rate"
                 name="ware_house_transporting_rate"
                 placeholder="Enter Transporting Rate"
                 type="number"
