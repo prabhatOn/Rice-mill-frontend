@@ -178,16 +178,16 @@ const Dhan_Awak = () => {
 
         const data = society_rate.data;
         setsocietyData(data);
-        // console.log(data);
+        console.log(data);
       } catch (error) {
         console.error("Error:", error);
       }
     }
 
-    if (DhanAwakData.transporter_name_id) {
+    if (DhanAwakData.society_id) {
       fetchtrucktransporter();
     }
-  }, [DhanAwakData.transporter_name_id]);
+  }, [DhanAwakData.society_id]);
 
   const handleSelectChange = (selectedOption) => {
     setFormData({
@@ -652,10 +652,11 @@ const Dhan_Awak = () => {
                     <input
                       disabled
                       value={
-                        (DhanAwakData.transporting_rate =
-                          societyData.transporting_rate || "")
+                        (societyData.society_transporting &&
+                          societyData.society_transporting[0]
+                            .transporting_rate) ||
+                        ""
                       }
-                      // value={DhanAwakData.transporting_rate}
                       onChange={handleInputChange}
                       type="number"
                       name="transporting_rate"
