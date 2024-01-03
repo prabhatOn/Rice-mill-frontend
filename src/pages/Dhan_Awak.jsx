@@ -163,6 +163,31 @@ const Dhan_Awak = () => {
       fetchtrucktransporter();
     }
   }, [DhanAwakData.transporter_name_id]);
+  const [societyData, setsocietyData] = useState([]);
+  useEffect(() => {
+    async function fetchtrucktransporter() {
+      try {
+        const society_rate = await axios.get(
+          `http://139.84.133.223:3000/society-transporting-rate/${DhanAwakData.society_id}`,
+          {
+            headers: {
+              "api-key": apiKey,
+            },
+          }
+        );
+
+        const data = society_rate.data;
+        setsocietyData(data);
+        // console.log(data);
+      } catch (error) {
+        console.error("Error:", error);
+      }
+    }
+
+    if (DhanAwakData.transporter_name_id) {
+      fetchtrucktransporter();
+    }
+  }, [DhanAwakData.transporter_name_id]);
 
   const handleSelectChange = (selectedOption) => {
     setFormData({
@@ -193,7 +218,6 @@ const Dhan_Awak = () => {
           "Content-Type": "application/json",
           "api-key": apiKey,
         },
-        body: JSON.stringify(DhanAwakData),
       });
 
       if (response.ok) {
@@ -627,11 +651,11 @@ const Dhan_Awak = () => {
                   <div>
                     <input
                       disabled
-                      // value={
-                      //   (DhanAwakData.transporting_rate =
-                      //     DoOptionssocietyid.transporting_rate || "")
-                      // }
-                      value={DhanAwakData.transporting_rate}
+                      value={
+                        (DhanAwakData.society_transporting.transporting_rate =
+                          societyData.transporting_rate || "")
+                      }
+                      // value={DhanAwakData.transporting_rate}
                       onChange={handleInputChange}
                       type="number"
                       name="transporting_rate"
