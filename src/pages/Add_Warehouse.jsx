@@ -31,7 +31,7 @@ const Add_Warehouse = () => {
     try {
       const response = await axios.post(
         "http://139.84.133.223:3000/ware-house-transporting/",
-        Addwarehousedata,
+        Addwarehouse,
         {
           headers: {
             "Content-Type": "application/json",
