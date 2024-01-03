@@ -11,14 +11,14 @@ const Addricemill = () => {
     rice_mill_name: "",
     mill_address: "",
     phone_number: "",
-    rice_mill_capacity: "",
+    rice_mill_capacity: 0,
   });
   const initialData = {
     gst_number: "",
     rice_mill_name: "",
     mill_address: "",
     phone_number: "",
-    rice_mill_capacity: "",
+    rice_mill_capacity: 0,
   };
   const resetForm = () => {
     setAddricedata(initialData);
@@ -188,7 +188,7 @@ const Addricemill = () => {
                 label="Rice Mill Capacity"
                 name="rice_mill_capacity"
                 value={Addricedata.rice_mill_capacity}
-                type="text"
+                type="number"
                 onChange={handleInputChange}
                 placeholder="Enter Rice Mill Capacity"
               />

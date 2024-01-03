@@ -136,26 +136,26 @@ const Add_Agreement = () => {
             <form className="space-y-6" onSubmit={handleSubmit}>
               <SelectInput
                 label="Select Rice Mill"
-                name="select_mill_id"
+                name="rice_mill_id"
                 options={AgreementOptions.map((option) => ({
                   label: option.rice_mill_name,
                   value: option.rice_mill_id,
                 }))}
                 value={
-                  agreementData.select_mill_id
+                  agreementData.rice_mill_id
                     ? {
                         label: AgreementOptions.find(
                           (option) =>
-                            option.rice_mill_id === agreementData.select_mill_id
+                            option.rice_mill_id === agreementData.rice_mill_id
                         ).rice_mill_name,
-                        value: agreementData.select_mill_id,
+                        value: agreementData.rice_mill_id,
                       }
                     : null
                 }
                 onChange={(selectedOption) =>
                   handleInputChange({
                     target: {
-                      name: "select_mill_id",
+                      name: "rice_mill_id",
                       value: selectedOption ? selectedOption.value : "",
                     },
                   })
