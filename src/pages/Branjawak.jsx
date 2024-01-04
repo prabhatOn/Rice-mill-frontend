@@ -7,6 +7,7 @@ import axios from "axios";
 import SelectInput from "../inputelement/Selectinput";
 import Brokenjawak from "./Brokenjawak";
 const Branjawak = () => {
+  const apiKey = import.meta.env.VITE_API_KEY;
   const [BranjawakData, setBranjawakData] = useState({
     rst_number: 0,
     date: "",
@@ -32,7 +33,13 @@ const Branjawak = () => {
     async function fetchMillData() {
       try {
         const All_data = await axios.get(
-          "http://139.84.133.223:3000/rice-truck-party-brokers"
+          "http://139.84.133.223:3000/rice-truck-party-brokers",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "api-key": apiKey,
+            },
+          }
         );
 
         const data = All_data.data;
@@ -85,6 +92,7 @@ const Branjawak = () => {
         {
           headers: {
             "Content-Type": "application/json",
+            "api-key": apiKey,
           },
         }
       );

@@ -132,7 +132,7 @@ function View_RiceDeposit() {
                       {Agreement.lot_number}
                     </td>
                     <td className="whitespace-nowrap py-2 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">
-                      {Agreement.ware_houes_name}
+                      {Agreement.ware_house_name}
                     </td>
                     <td className="whitespace-nowrap py-2 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">
                       {Agreement.rice_mill_name}

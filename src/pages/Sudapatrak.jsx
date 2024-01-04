@@ -148,17 +148,14 @@ const Saudapatrak = () => {
                 <SelectInput
                   label="Truck Number"
                   name="vechicle_number_id"
-                  options={
-                    trucks.truck_data &&
-                    trucks.truck_data.map((option) => ({
-                      label: option.truck_number,
-                      value: option.truck_id,
-                    }))
-                  }
+                  options={trucks.map((option) => ({
+                    label: option.truck_number,
+                    value: option.truck_id,
+                  }))}
                   value={
                     saudapatrakData.vechicle_number_id
                       ? {
-                          label: trucks.truck_data.find(
+                          label: trucks.find(
                             (option) =>
                               option.truck_id ===
                               saudapatrakData.vechicle_number_id

@@ -70,16 +70,20 @@ const Dalalidhan = () => {
   const [kochiaData, setkochiaData] = useState([]);
   const [trucks, setTrucks] = useState([]);
   useEffect(() => {
+    const apiKey = import.meta.env.VITE_API_KEY;
     async function fetchData() {
       try {
         const [kochiaResponse, truckResponse] = await Promise.all([
-          axios.get("http://139.84.133.223:3000/kochia-data"),
-          axios.get("http://139.84.133.223:3000/trucks/"),
-          {
+          axios.get("http://139.84.133.223:3000/kochia-data", {
             headers: {
               "api-key": apiKey,
             },
-          },
+          }),
+          axios.get("http://139.84.133.223:3000/trucks/", {
+            headers: {
+              "api-key": apiKey,
+            },
+          }),
         ]);
 
         const kochiadata = kochiaResponse.data;
@@ -116,6 +120,7 @@ const Dalalidhan = () => {
   };
 
   const handleSubmit = async (e) => {
+    const apiKey = import.meta.env.VITE_API_KEY;
     // console.log(DalaliData);
     e.preventDefault();
     try {
@@ -581,7 +586,7 @@ const Dalalidhan = () => {
                         placeholder="Enter Amount"
                         name="ammount"
                         value={
-                          (DalaliData.ammount =
+                          (DalaliData.amount =
                             (DalaliData.net_weight -
                               DalaliData.weight_less_kata_difference) *
                               DalaliData.rate -

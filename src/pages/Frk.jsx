@@ -189,17 +189,14 @@ const Frk = () => {
               <SelectInput
                 label="Select Rice Mill"
                 name="rice_mill_name_id"
-                options={
-                  millData.rice_mill_data &&
-                  millData.rice_mill_data.map((option) => ({
-                    label: option.rice_mill_name,
-                    value: option.rice_mill_id,
-                  }))
-                }
+                options={millData.map((option) => ({
+                  label: option.rice_mill_name,
+                  value: option.rice_mill_id,
+                }))}
                 value={
                   frkData.rice_mill_name_id
                     ? {
-                        label: millData.rice_mill_data.find(
+                        label: millData.find(
                           (option) =>
                             option.rice_mill_id === frkData.rice_mill_name_id
                         ).rice_mill_name,
@@ -221,17 +218,14 @@ const Frk = () => {
               <SelectInput
                 label="Truck Number"
                 name="truck_number_id"
-                options={
-                  trucks.truck_data &&
-                  trucks.truck_data.map((option) => ({
-                    label: option.truck_number,
-                    value: option.truck_id,
-                  }))
-                }
+                options={trucks.map((option) => ({
+                  label: option.truck_number,
+                  value: option.truck_id,
+                }))}
                 value={
                   frkData.truck_number_id
                     ? {
-                        label: trucks.truck_data.find(
+                        label: trucks.find(
                           (option) =>
                             option.truck_id === frkData.truck_number_id
                         ).truck_number,

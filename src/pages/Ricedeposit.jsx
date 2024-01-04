@@ -261,8 +261,8 @@ const Ricedeposit = () => {
                   options={
                     RiceDeopsitOptions.ware_house_data &&
                     RiceDeopsitOptions.ware_house_data.map((option) => ({
-                      label: option.ware_houes_name,
-                      value: option.ware_houes_id,
+                      label: option.ware_house_name,
+                      value: option.ware_house_id,
                     }))
                   }
                   value={
@@ -270,9 +270,9 @@ const Ricedeposit = () => {
                       ? {
                           label: RiceDeopsitOptions.ware_house_data.find(
                             (option) =>
-                              option.ware_houes_id ===
+                              option.ware_house_id ===
                               RicedepositData.ware_house_id
-                          ).ware_houes_name,
+                          ).ware_house_name,
                           value: RicedepositData.ware_house_id,
                         }
                       : null

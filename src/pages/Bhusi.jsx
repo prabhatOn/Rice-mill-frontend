@@ -6,6 +6,7 @@ import Inputbox from "../inputelement/Inputbox";
 import axios from "axios";
 import SelectInput from "../inputelement/Selectinput";
 const Bhusi = () => {
+  const apiKey = import.meta.env.VITE_API_KEY;
   const [BhusiData, setBhusiData] = useState({
     rst_number: 0,
     date: "",
@@ -23,7 +24,13 @@ const Bhusi = () => {
     async function fetchMillData() {
       try {
         const All_data = await axios.get(
-          "http://139.84.133.223:3000/rice-truck-party-brokers"
+          "http://139.84.133.223:3000/rice-truck-party-brokers",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "api-key": apiKey,
+            },
+          }
         );
 
         const data = All_data.data;
@@ -68,6 +75,7 @@ const Bhusi = () => {
         {
           headers: {
             "Content-Type": "application/json",
+            "api-key": apiKey,
           },
         }
       );

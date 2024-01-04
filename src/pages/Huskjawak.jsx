@@ -6,6 +6,7 @@ import Inputbox from "../inputelement/Inputbox";
 import axios from "axios";
 import SelectInput from "../inputelement/Selectinput";
 const Huskjawak = () => {
+  const apiKey = import.meta.env.VITE_API_KEY;
   const [HuskjawakData, setHuskjawakData] = useState({
     rst_number: 0,
     date: "",
@@ -33,7 +34,13 @@ const Huskjawak = () => {
     async function fetchMillData() {
       try {
         const All_data = await axios.get(
-          "http://139.84.133.223:3000/rice-truck-party-brokers"
+          "http://139.84.133.223:3000/rice-truck-party-brokers",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "api-key": apiKey,
+            },
+          }
         );
 
         const data = All_data.data;
@@ -90,6 +97,7 @@ const Huskjawak = () => {
         {
           headers: {
             "Content-Type": "application/json",
+            "api-key": apiKey,
           },
         }
       );

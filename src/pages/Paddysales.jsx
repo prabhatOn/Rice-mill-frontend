@@ -5,6 +5,7 @@ import axios from "axios";
 import SelectInput from "../inputelement/Selectinput";
 import Inputbox from "../inputelement/Inputbox";
 const Paddysales = () => {
+  const apiKey = import.meta.env.VITE_API_KEY;
   const [paddysalesData, setpaddysalesData] = useState({
     rst_number_id: "",
     party: "",
@@ -30,7 +31,13 @@ const Paddysales = () => {
     async function fetchMillData() {
       try {
         const All_data = await axios.get(
-          "http://139.84.133.223:3000/rice-truck-party-brokers"
+          "http://139.84.133.223:3000/rice-truck-party-brokers",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "api-key": apiKey,
+            },
+          }
         );
 
         const data = All_data.data;
@@ -43,30 +50,42 @@ const Paddysales = () => {
 
     fetchMillData();
   }, []);
-  const [rstData, setrstData] = useState([]);
-  useEffect(() => {
-    async function fetchrst() {
-      try {
-        const rst_response = await axios.get(
-          "http://139.84.133.223:3000/dhan-awak-data"
-        );
+  // const [rstData, setrstData] = useState([]);
+  // useEffect(() => {
+  //   async function fetchrst() {
+  //     try {
+  //       const rst_response = await axios.get(
+  //         "http://139.84.133.223:3000/dhan-awak-data",
+  //         {
+  //           headers: {
+  //             "Content-Type": "application/json",
+  //             "api-key": apiKey,
+  //           },
+  //         }
+  //       );
 
-        const data = rst_response.data;
-        setrstData(data);
-        console.log(data);
-      } catch (error) {
-        console.error("Error:", error);
-      }
-    }
-    fetchrst();
-  }, []);
+  //       const data = rst_response.data;
+  //       setrstData(data);
+  //       console.log(data);
+  //     } catch (error) {
+  //       console.error("Error:", error);
+  //     }
+  //   }
+  //   fetchrst();
+  // }, []);
 
   const [trucks, setTrucks] = useState([]);
   useEffect(() => {
     async function fetchTransporter() {
       try {
         const transporter_response = await axios.get(
-          "http://139.84.133.223:3000/trucks/"
+          "http://139.84.133.223:3000/trucks/",
+          {
+            headers: {
+              "Content-Type": "application/json",
+              "api-key": apiKey,
+            },
+          }
         );
 
         const data = transporter_response.data;
@@ -96,6 +115,7 @@ const Paddysales = () => {
         {
           headers: {
             "Content-Type": "application/json",
+            "api-key": apiKey,
           },
         }
       );
@@ -196,23 +216,13 @@ const Paddysales = () => {
                     </label>
 
                     <div className="mt-1">
-                      <select
-                        name="rst_number_id"
-                        type="text"
-                        value={paddysalesData.rst_number_id}
-                        className=" bg-white min-w-[250px] block w-full px-1.5 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      <input
                         onChange={handleInputChange}
-                      >
-                        <option value="">Select rst</option>
-                        {rstData.map((option) => (
-                          <option
-                            key={option.dhan_awak_id}
-                            value={option.dhan_awak_id}
-                          >
-                            {option.rst_number}
-                          </option>
-                        ))}
-                      </select>
+                        type="number"
+                        name="rst_number_id"
+                        value={paddysalesData.rst_number_id}
+                        className="block min-w-[250px] px-1.5 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                      />
                     </div>
                   </div>
                   <div>

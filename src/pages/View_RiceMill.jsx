@@ -8,7 +8,8 @@ function View_RiceMill() {
       try {
         // Replace 'YOUR_API_KEY' with your actual API key
         const response = await axios.get(
-          "http://139.84.133.223:3000/rice-mill/",
+          "http://139.84.133.223:3000/rice-mill/"
+          // "https://mill.dappfolk.com/rice-mill/",
           {
             headers: {
               "api-key": apiKey,

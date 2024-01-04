@@ -196,7 +196,7 @@ function View_Dalali_Dhan() {
                       {Agreement.rate}
                     </td>
                     <td className="whitespace-nowrap py-2 pl-4 pr-3 text-sm text-gray-500 sm:pl-0">
-                      {Agreement.ammount}
+                      {Agreement.amount}
                     </td>
                   </tr>
                 ))}
