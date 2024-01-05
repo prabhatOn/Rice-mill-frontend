@@ -6,7 +6,7 @@ function View_Dhan_Awak() {
 
   useEffect(() => {
     axios
-      .get("https://mill.dappfolk.com:3000/dhan-awak-data", {
+      .get("https://mill.dappfolk.com:3000/dhan-awak-data/", {
         headers: {
           "api-key": apiKey,
         },
