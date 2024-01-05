@@ -25,7 +25,7 @@ const Otherawak = () => {
     async function fetchMillData() {
       try {
         const All_data = await axios.get(
-          "http://139.84.133.223:3000/rice-truck-party-brokers",
+          "https://mill.dappfolk.com:3000/rice-truck-party-brokers",
           {
             headers: {
               "api-key": apiKey,
@@ -72,7 +72,7 @@ const Otherawak = () => {
 
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/other-awak",
+        "https://mill.dappfolk.com:3000/other-awak",
         OtherawakData,
         {
           headers: {

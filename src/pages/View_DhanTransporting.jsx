@@ -5,7 +5,7 @@ function View_DhanTransporting() {
   const [data, setdata] = useState([]);
   useEffect(() => {
     axios
-      .get("http://139.84.133.223:3000/dhan-transporting-data", {
+      .get("https://mill.dappfolk.com:3000/dhan-transporting-data", {
         headers: {
           "api-key": apiKey,
         },

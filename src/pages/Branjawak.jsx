@@ -33,7 +33,7 @@ const Branjawak = () => {
     async function fetchMillData() {
       try {
         const All_data = await axios.get(
-          "http://139.84.133.223:3000/rice-truck-party-brokers",
+          "https://mill.dappfolk.com:3000/rice-truck-party-brokers",
           {
             headers: {
               "Content-Type": "application/json",
@@ -87,7 +87,7 @@ const Branjawak = () => {
 
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/bran-jawak",
+        "https://mill.dappfolk.com:3000/bran-jawak",
         BranjawakData,
         {
           headers: {

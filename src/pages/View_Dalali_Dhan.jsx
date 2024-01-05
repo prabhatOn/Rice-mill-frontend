@@ -6,7 +6,7 @@ function View_Dalali_Dhan() {
 
   useEffect(() => {
     axios
-      .get("http://139.84.133.223:3000/dalali-dhaan-data", {
+      .get("https://mill.dappfolk.com:3000/dalali-dhaan-data", {
         headers: {
           "api-key": apiKey,
         },

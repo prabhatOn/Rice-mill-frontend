@@ -6,7 +6,7 @@ function View_RiceDeposit() {
 
   useEffect(() => {
     axios
-      .get("http://139.84.133.223:3000/rice-deposite-data", {
+      .get("https://mill.dappfolk.com:3000/rice-deposite-data", {
         headers: {
           "api-key": apiKey,
         },

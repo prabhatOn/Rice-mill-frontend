@@ -5,7 +5,7 @@ function ViewTransporter() {
   const [data, setdata] = useState([]);
   useEffect(() => {
     axios
-      .get("http://139.84.133.223:3000/transporters", {
+      .get("https://mill.dappfolk.com:3000/transporters", {
         headers: {
           "api-key": apiKey,
         },

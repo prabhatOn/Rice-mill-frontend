@@ -23,7 +23,7 @@ const Ricepurchased = () => {
     async function fetchMillData() {
       try {
         const All_data = await axios.get(
-          "http://139.84.133.223:3000/rice-truck-party-brokers",
+          "https://mill.dappfolk.com:3000/rice-truck-party-brokers",
           {
             headers: {
               "api-key": apiKey,
@@ -69,7 +69,7 @@ const Ricepurchased = () => {
 
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/rice-purchase",
+        "https://mill.dappfolk.com:3000/rice-purchase",
         RicepurchaseData,
         {
           headers: {

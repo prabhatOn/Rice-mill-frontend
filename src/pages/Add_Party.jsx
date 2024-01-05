@@ -29,7 +29,7 @@ const Add_Party = () => {
     // console.log(partydata);
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/party/",
+        "https://mill.dappfolk.com:3000/party/",
         partydata,
         {
           headers: {

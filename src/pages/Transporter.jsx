@@ -32,7 +32,7 @@ const Add_New_Transporter = () => {
 
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/transporter/",
+        "https://mill.dappfolk.com:3000/transporter/",
         transporterData,
         {
           headers: {

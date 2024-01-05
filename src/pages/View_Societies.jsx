@@ -5,7 +5,7 @@ function ViewSocieties() {
   const [data, setdata] = useState([]);
   useEffect(() => {
     axios
-      .get("http://139.84.133.223:3000/societies", {
+      .get("https://mill.dappfolk.com:3000/societies", {
         headers: {
           "api-key": apiKey,
         },

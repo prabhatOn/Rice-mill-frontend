@@ -36,7 +36,7 @@ const Add_Agreement = () => {
     async function fetchData() {
       try {
         const Agreement_response = await axios.get(
-          "http://139.84.133.223:3000/rice-mill",
+          "https://mill.dappfolk.com:3000/rice-mill",
           {
             headers: {
               "api-key": apiKey,
@@ -70,7 +70,7 @@ const Add_Agreement = () => {
 
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/agreement/",
+        "https://mill.dappfolk.com:3000/agreement/",
         agreementData,
         {
           headers: {

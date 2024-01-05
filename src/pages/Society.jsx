@@ -35,7 +35,7 @@ const AddNewSociety = () => {
 
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/society/",
+        "https://mill.dappfolk.com:3000/society/",
         societyData,
         {
           headers: {

@@ -5,7 +5,7 @@ function View_Warehouse() {
   const apiKey = import.meta.env.VITE_API_KEY;
   useEffect(() => {
     axios
-      .get("http://139.84.133.223:3000/get-ware-house-data", {
+      .get("https://mill.dappfolk.com:3000/get-ware-house-data", {
         headers: {
           "api-key": apiKey,
         },

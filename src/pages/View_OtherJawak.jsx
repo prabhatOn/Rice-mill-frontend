@@ -6,7 +6,7 @@ function View_OtherJawak() {
 
   useEffect(() => {
     axios
-      .get("http://139.84.133.223:3000/other-jawak-data", {
+      .get("https://mill.dappfolk.com:3000/other-jawak-data", {
         headers: {
           "api-key": apiKey,
         },
