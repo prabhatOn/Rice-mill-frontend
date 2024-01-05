@@ -22,7 +22,7 @@ function View_PaddyByType() {
     async function fetchData() {
       try {
         const Ricemil_response = await axios.get(
-          "https://mill.dappfolk.com:3000/rice-mill",
+          "https://mill.dappfolk.com:3000/View_RiceMill",
           {
             headers: {
               "api-key": apiKey,
@@ -53,7 +53,7 @@ function View_PaddyByType() {
     async function fetchMillData() {
       try {
         const All_Mix_Data_response = await axios.get(
-          `http://139.84.133.223:3000/paddy-data/${Riceid.select_mill_id}`,
+          `https://mill.dappfolk.com:3000/paddy-data/${Riceid.select_mill_id}`,
           {
             headers: {
               "api-key": apiKey,
