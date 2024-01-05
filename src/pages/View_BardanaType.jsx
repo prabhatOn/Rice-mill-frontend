@@ -22,7 +22,7 @@ function View_BardanaType() {
     async function fetchData() {
       try {
         const Ricemil_response = await axios.get(
-          "https://mill.dappfolk.com:3000/rice-mill",
+          "https://mill.dappfolk.com:3000/View_RiceMill",
           {
             headers: {
               "api-key": apiKey,
