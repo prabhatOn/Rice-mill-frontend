@@ -30,7 +30,7 @@ const Add_Warehouse = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/ware-house-transporting/",
+        "https://mill.dappfolk.com:3000/ware-house-transporting/",
         Addwarehouse,
         {
           headers: {

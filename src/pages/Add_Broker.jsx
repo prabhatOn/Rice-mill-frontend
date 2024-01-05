@@ -30,7 +30,7 @@ const Add_Broker = () => {
     console.log(brokerdata);
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/broker/",
+        "https://mill.dappfolk.com:3000/broker/",
         brokerdata,
         {
           headers: {

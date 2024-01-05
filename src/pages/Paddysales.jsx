@@ -31,7 +31,7 @@ const Paddysales = () => {
     async function fetchMillData() {
       try {
         const All_data = await axios.get(
-          "http://139.84.133.223:3000/rice-truck-party-brokers",
+          "https://mill.dappfolk.com:3000/rice-truck-party-brokers",
           {
             headers: {
               "Content-Type": "application/json",
@@ -79,7 +79,7 @@ const Paddysales = () => {
     async function fetchTransporter() {
       try {
         const transporter_response = await axios.get(
-          "http://139.84.133.223:3000/trucks/",
+          "https://mill.dappfolk.com:3000/trucks/",
           {
             headers: {
               "Content-Type": "application/json",
@@ -110,7 +110,7 @@ const Paddysales = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/paddy-sale",
+        "https://mill.dappfolk.com:3000/paddy-sale",
         paddysalesData,
         {
           headers: {

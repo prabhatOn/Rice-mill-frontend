@@ -15,7 +15,7 @@ const Lotnumbermaster = () => {
     async function fetchMillData() {
       try {
         const Mill_response = await axios.get(
-          "http://139.84.133.223:3000/rice-mill"
+          "https://mill.dappfolk.com:3000/rice-mill"
         );
 
         const data = Mill_response.data;
@@ -44,7 +44,7 @@ const Lotnumbermaster = () => {
 
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/lot-number-master",
+        "https://mill.dappfolk.com:3000/lot-number-master",
         lotnumbermasterData,
         {
           headers: {

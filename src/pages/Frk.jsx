@@ -38,7 +38,7 @@ const Frk = () => {
     async function fetchMillData() {
       try {
         const Mill_response = await axios.get(
-          "http://139.84.133.223:3000/rice-mill",
+          "https://mill.dappfolk.com:3000/rice-mill",
           {
             headers: {
               "api-key": apiKey,
@@ -62,7 +62,7 @@ const Frk = () => {
     async function fetchTransporter() {
       try {
         const transporter_response = await axios.get(
-          "http://139.84.133.223:3000/trucks/",
+          "https://mill.dappfolk.com:3000/trucks/",
           {
             headers: {
               "api-key": apiKey,
@@ -95,7 +95,7 @@ const Frk = () => {
 
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/frk",
+        "https://mill.dappfolk.com:3000/frk",
         frkData,
         {
           headers: {

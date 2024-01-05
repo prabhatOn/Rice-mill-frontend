@@ -16,7 +16,7 @@ const Dhanricesocietiesrate = () => {
     async function fetchsociety() {
       try {
         const society_response = await axios.get(
-          "http://139.84.133.223:3000/societies/"
+          "https://mill.dappfolk.com:3000/societies/"
         );
 
         const data = society_response.data;
@@ -44,7 +44,7 @@ const Dhanricesocietiesrate = () => {
 
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/dhan-rice-societies-rate",
+        "https://mill.dappfolk.com:3000/dhan-rice-societies-rate",
         DhanricesocietiesrateData,
         {
           headers: {

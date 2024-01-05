@@ -34,7 +34,7 @@ const Saudapatrak = () => {
     async function fetchTransporter() {
       try {
         const transporter_response = await axios.get(
-          "http://139.84.133.223:3000/trucks/",
+          "https://mill.dappfolk.com:3000/trucks/",
           {
             headers: {
               "api-key": apiKey,
@@ -66,7 +66,7 @@ const Saudapatrak = () => {
 
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/sauda-patrak",
+        "https://mill.dappfolk.com:3000/sauda-patrak",
         saudapatrakData,
         {
           headers: {

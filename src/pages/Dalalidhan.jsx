@@ -74,12 +74,12 @@ const Dalalidhan = () => {
     async function fetchData() {
       try {
         const [kochiaResponse, truckResponse] = await Promise.all([
-          axios.get("http://139.84.133.223:3000/kochia-data", {
+          axios.get("https://mill.dappfolk.com:3000/kochia-data", {
             headers: {
               "api-key": apiKey,
             },
           }),
-          axios.get("http://139.84.133.223:3000/trucks/", {
+          axios.get("https://mill.dappfolk.com:3000/trucks/", {
             headers: {
               "api-key": apiKey,
             },
@@ -125,7 +125,7 @@ const Dalalidhan = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/dalali-dhaan",
+        "https://mill.dappfolk.com:3000/dalali-dhaan",
         DalaliData,
         {
           headers: {

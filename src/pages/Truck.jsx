@@ -23,7 +23,7 @@ const Add_New_Truck = () => {
     async function fetchData() {
       try {
         const transporter_response = await axios.get(
-          "http://139.84.133.223:3000/transporters/",
+          "https://mill.dappfolk.com:3000/transporters/",
           {
             headers: {
               "api-key": apiKey,
@@ -63,7 +63,7 @@ const Add_New_Truck = () => {
 
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/truck/",
+        "https://mill.dappfolk.com:3000/truck/",
         truckData,
         {
           headers: {

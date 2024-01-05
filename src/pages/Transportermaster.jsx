@@ -19,7 +19,7 @@ const Transportermaster = () => {
     async function fetchData() {
       try {
         const transporter_response = await axios.get(
-          "http://139.84.133.223:3000/transporters/"
+          "https://mill.dappfolk.com:3000/transporters/"
         );
 
         const data = transporter_response.data;
@@ -39,7 +39,7 @@ const Transportermaster = () => {
     async function fetchTransporter() {
       try {
         const transporter_response = await axios.get(
-          "http://139.84.133.223:3000/trucks/"
+          "https://mill.dappfolk.com:3000/trucks/"
         );
 
         const data = transporter_response.data;
@@ -67,7 +67,7 @@ const Transportermaster = () => {
 
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/transporter-master/",
+        "https://mill.dappfolk.com:3000/transporter-master/",
         transportermasteData
       );
 

@@ -48,7 +48,7 @@ const Dhantransporting = () => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "http://139.84.133.223:3000/rice-rst-society-do-truck-transporter",
+          "https://mill.dappfolk.com:3000/rice-rst-society-do-truck-transporter",
           {
             headers: {
               "api-key": apiKey,
@@ -70,7 +70,7 @@ const Dhantransporting = () => {
     async function fetchagrementData() {
       try {
         const rst_data = await axios.get(
-          ` http://139.84.133.223:3000/rice-rst-number-do-number/${dhantransportingData.rice_mill_name_id}`,
+          ` https://mill.dappfolk.com:3000/rice-rst-number-do-number/${dhantransportingData.rice_mill_name_id}`,
           {
             headers: {
               "api-key": apiKey,
@@ -98,7 +98,7 @@ const Dhantransporting = () => {
     async function fetchtrucktransporter() {
       try {
         const rice_do_number = await axios.get(
-          ` http://139.84.133.223:3000/truck-transporter/${dhantransportingData.transporter_name_id}`,
+          ` https://mill.dappfolk.com:3000/truck-transporter/${dhantransportingData.transporter_name_id}`,
           {
             headers: {
               "api-key": apiKey,
@@ -130,7 +130,7 @@ const Dhantransporting = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/dhan-transporting",
+        "https://mill.dappfolk.com:3000/dhan-transporting",
         dhantransportingData,
         {
           headers: {

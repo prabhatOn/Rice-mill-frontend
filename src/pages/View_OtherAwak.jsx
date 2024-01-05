@@ -6,7 +6,7 @@ function View_OtherAwak() {
 
   useEffect(() => {
     axios
-      .get("http://139.84.133.223:3000/other-awak-data", {
+      .get("https://mill.dappfolk.com:3000/other-awak-data", {
         headers: {
           "api-key": apiKey,
         },

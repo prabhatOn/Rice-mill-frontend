@@ -53,7 +53,7 @@ const Addricemill = () => {
     }
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/add-rice-mill/",
+        "https://mill.dappfolk.com:3000/add-rice-mill/",
 
         Addricedata,
         {

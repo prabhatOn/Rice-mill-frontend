@@ -26,7 +26,7 @@ const Kochia = () => {
     async function fetchMillData() {
       try {
         const Mill_response = await axios.get(
-          "http://139.84.133.223:3000/rice-mill",
+          "https://mill.dappfolk.com:3000/rice-mill",
           {
             headers: {
               "api-key": apiKey,
@@ -58,7 +58,7 @@ const Kochia = () => {
 
     try {
       const response = await axios.post(
-        "http://139.84.133.223:3000/kochia",
+        "https://mill.dappfolk.com:3000/kochia",
         kochiaData,
         {
           headers: {
