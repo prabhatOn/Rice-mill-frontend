@@ -14,7 +14,7 @@ const customStyles = {
   }),
 };
 
-const Actualpaddy = ({ onSelectChange }) => {
+const Actualpaddy = ({ value, onChange }) => {
   const ActualPaddy = [
     { label: "RBG", value: "RBG" },
     { label: "Sambha", value: "Sambha" },

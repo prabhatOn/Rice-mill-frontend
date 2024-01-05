@@ -14,7 +14,7 @@ const customStyles = {
   }),
 };
 
-const Paddy = ({ onSelectChange }) => {
+const Paddy = ({ value, onChange }) => {
   const Paddy = [
     { label: "Mota", value: "Mota" },
     { label: "Patla", value: "Patla" },

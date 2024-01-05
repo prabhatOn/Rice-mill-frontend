@@ -14,7 +14,7 @@ const customStyles = {
   }),
 };
 
-const Stacklocation = ({ onSelectChange }) => {
+const Stacklocation = ({ value, onChange }) => {
   const Warehouse = [
     { label: "PRM In", value: "PRM In" },
     { label: "PRM Out", value: "PRM Out" },
