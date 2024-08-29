@@ -2,11 +2,12 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 function View_Nakkhi() {
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const [data, setdata] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://mill.dappfolk.com:3000/other-nakkhi-jawak-data", {
+      .get(`${apiBaseUrl}/other-nakkhi-jawak-data`, {
         headers: {
           "api-key": apiKey,
         },

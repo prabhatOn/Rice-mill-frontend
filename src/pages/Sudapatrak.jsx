@@ -26,6 +26,7 @@ const Saudapatrak = () => {
     amount: 0,
   };
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const resetForm = () => {
     setsaudapatrakData(initialDoData);
   };
@@ -34,7 +35,7 @@ const Saudapatrak = () => {
     async function fetchTransporter() {
       try {
         const transporter_response = await axios.get(
-          "https://mill.dappfolk.com:3000/trucks/",
+          `${apiBaseUrl}/trucks/`,
           {
             headers: {
               "api-key": apiKey,
@@ -66,7 +67,7 @@ const Saudapatrak = () => {
 
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/sauda-patrak",
+        `${apiBaseUrl}/sauda-patrak`,
         saudapatrakData,
         {
           headers: {

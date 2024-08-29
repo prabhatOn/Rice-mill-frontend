@@ -25,11 +25,12 @@ const Add_Do = () => {
 
   const [DoOptions, setDoOptions] = useState([]);
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   useEffect(() => {
     async function fetchMillData() {
       try {
         const Mill_response = await axios.get(
-          "https://mill.dappfolk.com:3000/rice-agreement-transporter-truck-society-data",
+          `${apiBaseUrl}/rice-agreement-transporter-truck-society-data`,
           {
             headers: {
               "api-key": apiKey,
@@ -73,7 +74,7 @@ const Add_Do = () => {
     async function fetchagrementData() {
       try {
         const agremennt_data = await axios.get(
-          `https://mill.dappfolk.com:3000/rice-agreement-data/${DoData.select_mill_id}`,
+          `${apiBaseUrl}/rice-agreement-data/${DoData.select_mill_id}`,
           {
             headers: {
               "api-key": apiKey,
@@ -107,7 +108,7 @@ const Add_Do = () => {
     // console.log(DoData);
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/add-do/",
+        `${apiBaseUrl}/add-do/`,
         DoData,
         {
           headers: {

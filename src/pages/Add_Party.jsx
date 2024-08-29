@@ -24,12 +24,13 @@ const Add_Party = () => {
     });
   };
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const handleSubmit = async (e) => {
     e.preventDefault();
     // console.log(partydata);
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/party/",
+        `${apiBaseUrl}/party/`,
         partydata,
         {
           headers: {

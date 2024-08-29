@@ -4,11 +4,12 @@ function View_RiceMill() {
   const [data, setdata] = useState([]);
   useEffect(() => {
     const apiKey = import.meta.env.VITE_API_KEY;
+    const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
     const fetchData = async () => {
       try {
         // Replace 'YOUR_API_KEY' with your actual API key
         const response = await axios.get(
-          "https://mill.dappfolk.com:3000/View_RiceMill/",
+          `${apiBaseUrl}/rice-mill/`,
           {
             headers: {
               "api-key": apiKey,

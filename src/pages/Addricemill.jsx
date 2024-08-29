@@ -5,6 +5,7 @@ import Inputbox from "../inputelement/Inputbox";
 
 import axios from "axios";
 
+
 const Addricemill = () => {
   const [Addricedata, setAddricedata] = useState({
     gst_number: "",
@@ -32,6 +33,9 @@ const Addricemill = () => {
     });
   };
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
+
+
   const validateGST = (gstNumber) => {
     const gstPattern =
       /^[0-9]{2}[A-Z]{5}[0-9]{4}[A-Z]{1}[1-9A-Z]{1}[Z]{1}[0-9A-Z]{1}$/;
@@ -53,7 +57,7 @@ const Addricemill = () => {
     }
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/add-rice-mill/",
+        `${apiBaseUrl}/add-rice-mill/`,
 
         Addricedata,
         {
@@ -130,7 +134,7 @@ const Addricemill = () => {
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-[480px]">
           <div className="bg-white px-6 py-12 shadow sm:rounded-lg sm:px-12">
             <form className="space-y-6" onSubmit={handleSubmit}>
-              <div>
+              {/* <div>
                 <div className="flex justify-between">
                   <label
                     htmlFor="rice_mill_name"
@@ -157,7 +161,15 @@ const Addricemill = () => {
                     <option value="Tulsi Rice Mill">Tulsi Rice Mill</option>
                   </select>
                 </div>
-              </div>
+              </div> */}
+              <Inputbox
+                label="Rice Mill"
+                name="rice_mill_name"
+                value={Addricedata.rice_mill_name}
+                type="text"
+                placeholder="Enter Rice Mill Name"
+                onChange={handleInputChange}
+              />
 
               <Inputbox
                 label="GST Number"

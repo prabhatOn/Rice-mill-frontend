@@ -8,6 +8,7 @@ import SelectInput from "../inputelement/Selectinput";
 import Brokenjawak from "./Brokenjawak";
 const Branjawak = () => {
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const [BranjawakData, setBranjawakData] = useState({
     rst_number: 0,
     date: "",
@@ -33,7 +34,7 @@ const Branjawak = () => {
     async function fetchMillData() {
       try {
         const All_data = await axios.get(
-          "https://mill.dappfolk.com:3000/rice-truck-party-brokers",
+          `${apiBaseUrl}/rice-truck-party-brokers`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -44,7 +45,7 @@ const Branjawak = () => {
 
         const data = All_data.data;
         setAlldata(data);
-        console.log(data);
+        // console.log(data);
       } catch (error) {
         console.error("Error:", error);
       }
@@ -76,7 +77,7 @@ const Branjawak = () => {
   };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    console.log(value);
+    // console.log(value);
     setBranjawakData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -87,7 +88,7 @@ const Branjawak = () => {
 
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/bran-jawak",
+        `${apiBaseUrl}/bran-jawak`,
         BranjawakData,
         {
           headers: {

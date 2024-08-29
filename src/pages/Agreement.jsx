@@ -29,6 +29,7 @@ const Add_Agreement = () => {
     setAgreementData(initialData);
   };
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const [AgreementOptions, setAgreementOptions] = useState([]);
 
   // Fetch data for the "Select Rice Mill" dropdown
@@ -36,7 +37,7 @@ const Add_Agreement = () => {
     async function fetchData() {
       try {
         const Agreement_response = await axios.get(
-          "https://mill.dappfolk.com:3000/rice-mill",
+          `${apiBaseUrl}/rice-mill`,
           {
             headers: {
               "api-key": apiKey,
@@ -70,7 +71,7 @@ const Add_Agreement = () => {
 
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/agreement/",
+        `${apiBaseUrl}/agreement/`,
         agreementData,
         {
           headers: {

@@ -3,9 +3,10 @@ import React, { useState, useEffect } from "react";
 function View_Warehouse() {
   const [data, setdata] = useState([]);
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   useEffect(() => {
     axios
-      .get("https://mill.dappfolk.com:3000/get-ware-house-data", {
+      .get(`${apiBaseUrl}/get-ware-house-data`, {
         headers: {
           "api-key": apiKey,
         },

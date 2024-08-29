@@ -32,13 +32,14 @@ const Frk = () => {
   const resetForm = () => {
     setfrskData(initialData);
   };
+  
   // Fetch data for the "Select Rice Mill" dropdown
   const [millData, setmillData] = useState([]);
   useEffect(() => {
     async function fetchMillData() {
       try {
         const Mill_response = await axios.get(
-          "https://mill.dappfolk.com:3000/rice-mill",
+          `${apiBaseUrl}/rice-mill`,
           {
             headers: {
               "api-key": apiKey,
@@ -62,7 +63,7 @@ const Frk = () => {
     async function fetchTransporter() {
       try {
         const transporter_response = await axios.get(
-          "https://mill.dappfolk.com:3000/trucks/",
+          `${apiBaseUrl}/trucks/`,
           {
             headers: {
               "api-key": apiKey,
@@ -80,6 +81,7 @@ const Frk = () => {
     fetchTransporter();
   }, []);
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -95,7 +97,7 @@ const Frk = () => {
 
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/frk",
+        `${apiBaseUrl}/frk`,
         frkData,
         {
           headers: {

@@ -17,13 +17,14 @@ const Ricepurchased = () => {
     party_weight: 0,
     bill_to_rice_mill: "",
   });
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const [Alldata, setAlldata] = useState([]);
 
   useEffect(() => {
     async function fetchMillData() {
       try {
         const All_data = await axios.get(
-          "https://mill.dappfolk.com:3000/rice-truck-party-brokers",
+          `${apiBaseUrl}/rice-truck-party-brokers`,
           {
             headers: {
               "api-key": apiKey,
@@ -32,7 +33,7 @@ const Ricepurchased = () => {
         );
 
         const data = All_data.data;
-        console.log(data);
+        // console.log(data);
         setAlldata(data);
       } catch (error) {
         console.error("Error:", error);
@@ -57,7 +58,7 @@ const Ricepurchased = () => {
   };
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    console.log(value);
+    // console.log(value);
     setRicepurchaseData((prevData) => ({
       ...prevData,
       [name]: value,
@@ -69,7 +70,7 @@ const Ricepurchased = () => {
 
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/rice-purchase",
+        `${apiBaseUrl}/rice-purchase`,
         RicepurchaseData,
         {
           headers: {

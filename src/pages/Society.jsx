@@ -23,6 +23,7 @@ const AddNewSociety = () => {
     setSocietyData(initialData);
   };
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setSocietyData({
@@ -35,7 +36,7 @@ const AddNewSociety = () => {
 
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/society/",
+        `${apiBaseUrl}/society/`,
         societyData,
         {
           headers: {
