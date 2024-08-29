@@ -6,6 +6,7 @@ import Inputbox from "../inputelement/Inputbox";
 import axios from "axios";
 const Kochia = () => {
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const [kochiaData, setkochiaData] = useState({
     rice_mill_name_id: "",
     kochia_name: "",
@@ -26,7 +27,7 @@ const Kochia = () => {
     async function fetchMillData() {
       try {
         const Mill_response = await axios.get(
-          "https://mill.dappfolk.com:3000/rice-mill",
+          `${apiBaseUrl}/rice-mill`,
           {
             headers: {
               "api-key": apiKey,
@@ -58,7 +59,7 @@ const Kochia = () => {
 
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/kochia",
+        `${apiBaseUrl}/kochia`,
         kochiaData,
         {
           headers: {
@@ -127,8 +128,7 @@ const Kochia = () => {
                 label="Select Rice Mill"
                 name="rice_mill_name_id"
                 options={
-                  DoOptions.rice_mill_data &&
-                  DoOptions.rice_mill_data.map((option) => ({
+                  DoOptions.map((option) => ({
                     label: option.rice_mill_name,
                     value: option.rice_mill_id,
                   }))
@@ -136,7 +136,7 @@ const Kochia = () => {
                 value={
                   kochiaData.rice_mill_name_id
                     ? {
-                        label: DoOptions.rice_mill_data.find(
+                        label: DoOptions.find(
                           (option) =>
                             option.rice_mill_id === kochiaData.rice_mill_name_id
                         ).rice_mill_name,

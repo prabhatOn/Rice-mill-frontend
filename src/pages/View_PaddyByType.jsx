@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 
 function View_PaddyByType() {
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const [Riceid, setRiceid] = useState({
     select_mill_id: "",
   });
@@ -22,7 +23,7 @@ function View_PaddyByType() {
     async function fetchData() {
       try {
         const Ricemil_response = await axios.get(
-          "https://mill.dappfolk.com:3000/View_RiceMill",
+          `${apiBaseUrl}/View_RiceMill` ,
           {
             headers: {
               "api-key": apiKey,

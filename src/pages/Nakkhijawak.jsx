@@ -7,6 +7,7 @@ import axios from "axios";
 import SelectInput from "../inputelement/Selectinput";
 const Nakkhijawak = () => {
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const [NakkhijawakData, setNakkhijawakData] = useState({
     rst_number: 0,
     date: "",
@@ -35,7 +36,7 @@ const Nakkhijawak = () => {
     async function fetchMillData() {
       try {
         const All_data = await axios.get(
-          "https://mill.dappfolk.com:3000/rice-truck-party-brokers",
+          `${apiBaseUrl}/rice-truck-party-brokers`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -68,7 +69,7 @@ const Nakkhijawak = () => {
 
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/nakkhi-jawak",
+        `${apiBaseUrl}/nakkhi-jawak`,
         NakkhijawakData,
         {
           headers: {

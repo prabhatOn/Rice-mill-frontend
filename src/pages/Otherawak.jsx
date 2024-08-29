@@ -7,6 +7,7 @@ import axios from "axios";
 import SelectInput from "../inputelement/Selectinput";
 const Otherawak = () => {
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const [OtherawakData, setOtherawakData] = useState({
     rst_number: 0,
     date: "",
@@ -25,7 +26,7 @@ const Otherawak = () => {
     async function fetchMillData() {
       try {
         const All_data = await axios.get(
-          "https://mill.dappfolk.com:3000/rice-truck-party-brokers",
+          `${apiBaseUrl}/rice-truck-party-brokers`,
           {
             headers: {
               "api-key": apiKey,
@@ -72,7 +73,7 @@ const Otherawak = () => {
 
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/other-awak",
+        `${apiBaseUrl}/other-awak`,
         OtherawakData,
         {
           headers: {

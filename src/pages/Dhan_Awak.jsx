@@ -87,12 +87,13 @@ const Dhan_Awak = () => {
   };
   const [DoOptions, setDoOptions] = useState([]);
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   // Fetch data for the "Select Rice Mill" dropdown
   useEffect(() => {
     async function fetchMillData() {
       try {
         const Mill_response = await axios.get(
-          "https://mill.dappfolk.com:3000/rice-do-society-truck-transporter",
+          `${apiBaseUrl}/rice-do-society-truck-transporter`,
           {
             headers: {
               "api-key": apiKey,
@@ -116,7 +117,7 @@ const Dhan_Awak = () => {
     async function fetchricedonumberData() {
       try {
         const truck_transporter = await axios.get(
-          ` https://mill.dappfolk.com:3000/rice-do-number/${DhanAwakData.rice_mill_id}`,
+          ` ${apiBaseUrl}/rice-do-number/${DhanAwakData.rice_mill_id}`,
           {
             headers: {
               "api-key": apiKey,
@@ -144,7 +145,7 @@ const Dhan_Awak = () => {
     async function fetchtrucktransporter() {
       try {
         const rice_do_number = await axios.get(
-          `https://mill.dappfolk.com:3000/truck-transporter/${DhanAwakData.transporter_name_id}`,
+          `${apiBaseUrl}/truck-transporter/${DhanAwakData.transporter_name_id}`,
           {
             headers: {
               "api-key": apiKey,
@@ -169,7 +170,7 @@ const Dhan_Awak = () => {
     async function fetchtrucktransporter() {
       try {
         const society_rate = await axios.get(
-          `https://mill.dappfolk.com:3000/society-transporting-rate/${DhanAwakData.society_id}`,
+          `${apiBaseUrl}/society-transporting-rate/${DhanAwakData.society_id}`,
           {
             headers: {
               "api-key": apiKey,
@@ -179,7 +180,7 @@ const Dhan_Awak = () => {
 
         const data = society_rate.data;
         setsocietyData(data);
-        console.log(data);
+        // console.log(data);
       } catch (error) {
         console.error("Error:", error);
       }
@@ -204,7 +205,7 @@ const Dhan_Awak = () => {
     console.log(DhanAwakData);
 
     try {
-      const response = await fetch("https://mill.dappfolk.com:3000/dhan-awak", {
+      const response = await fetch(`${apiBaseUrl}/dhan-awak`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -2,11 +2,12 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 function View_Dhan_Awak() {
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const [data, setdata] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://mill.dappfolk.com:3000/dhan-awak-data", {
+      .get(`${apiBaseUrl}/dhan-awak-data/`, {
         headers: {
           "api-key": apiKey,
         },
@@ -20,7 +21,7 @@ function View_Dhan_Awak() {
   }, []);
 
   // Log the data, not the setdata function
-  //   console.log(data);
+    console.log(data);
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">

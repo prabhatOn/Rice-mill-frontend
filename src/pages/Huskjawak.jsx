@@ -7,6 +7,7 @@ import axios from "axios";
 import SelectInput from "../inputelement/Selectinput";
 const Huskjawak = () => {
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const [HuskjawakData, setHuskjawakData] = useState({
     rst_number: 0,
     date: "",
@@ -34,7 +35,7 @@ const Huskjawak = () => {
     async function fetchMillData() {
       try {
         const All_data = await axios.get(
-          "https://mill.dappfolk.com:3000/rice-truck-party-brokers",
+          `${apiBaseUrl}/rice-truck-party-brokers`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -92,7 +93,7 @@ const Huskjawak = () => {
 
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/husk-jawak/",
+        `${apiBaseUrl}/husk-jawak/`,
         HuskjawakData,
         {
           headers: {

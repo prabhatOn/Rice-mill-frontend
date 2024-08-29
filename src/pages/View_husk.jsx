@@ -2,11 +2,12 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 function View_Husk() {
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const [data, setdata] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://mill.dappfolk.com:3000/other-husk-jawak-data", {
+      .get(`${apiBaseUrl}/other-husk-jawak-data`, {
         headers: {
           "api-key": apiKey,
         },

@@ -43,12 +43,13 @@ const Dhantransporting = () => {
   };
   // Fetch data for the "Do" dropdown
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const [dopandingData, setdopandingData] = useState([]);
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "https://mill.dappfolk.com:3000/rice-rst-society-do-truck-transporter",
+          `${apiBaseUrl}/rice-rst-society-do-truck-transporter`,
           {
             headers: {
               "api-key": apiKey,
@@ -70,7 +71,7 @@ const Dhantransporting = () => {
     async function fetchagrementData() {
       try {
         const rst_data = await axios.get(
-          ` https://mill.dappfolk.com:3000/rice-rst-number-do-number/${dhantransportingData.rice_mill_name_id}`,
+          ` ${apiBaseUrl}/rice-rst-number-do-number/${dhantransportingData.rice_mill_name_id}`,
           {
             headers: {
               "api-key": apiKey,
@@ -98,7 +99,7 @@ const Dhantransporting = () => {
     async function fetchtrucktransporter() {
       try {
         const rice_do_number = await axios.get(
-          ` https://mill.dappfolk.com:3000/truck-transporter/${dhantransportingData.transporter_name_id}`,
+          ` ${apiBaseUrl}/truck-transporter/${dhantransportingData.transporter_name_id}`,
           {
             headers: {
               "api-key": apiKey,
@@ -130,7 +131,7 @@ const Dhantransporting = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/dhan-transporting",
+        `${apiBaseUrl}/dhan-transporting`,
         dhantransportingData,
         {
           headers: {

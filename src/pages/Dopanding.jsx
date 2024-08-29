@@ -30,12 +30,13 @@ const Dopanding = () => {
   };
   const [DoOptions, setDoOptions] = useState([]);
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   // Fetch data for the "Select Rice Mill" dropdown
   useEffect(() => {
     async function fetchMillData() {
       try {
         const Mill_response = await axios.get(
-          "https://mill.dappfolk.com:3000/rice-do-society-truck-transporter",
+          `${apiBaseUrl}/rice-do-society-truck-transporter`,
           {
             headers: {
               "api-key": apiKey,
@@ -59,7 +60,7 @@ const Dopanding = () => {
     async function fetchricedonumberData() {
       try {
         const truck_transporter = await axios.get(
-          `https://mill.dappfolk.com:3000/rice-do-number/${DopandingData.rice_mill_id}`,
+          `${apiBaseUrl}/rice-do-number/${DopandingData.rice_mill_id}`,
           {
             headers: {
               "api-key": apiKey,
@@ -69,7 +70,7 @@ const Dopanding = () => {
 
         const data = truck_transporter.data;
         setDoOptionsRiceDoNumber(data);
-        console.log(data);
+        // console.log(data);
       } catch (error) {
         console.error("Error:", error);
       }
@@ -94,7 +95,7 @@ const Dopanding = () => {
 
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/do-panding",
+        `${apiBaseUrl}/do-panding`,
         DopandingData,
         {
           headers: {

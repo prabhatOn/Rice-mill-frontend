@@ -63,12 +63,13 @@ const Ricedeposit = () => {
   };
   const [RiceDeopsitOptions, setRiceDeposit] = useState([]);
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   // Fetch data for the "Select Rice Mill" dropdown
   useEffect(() => {
     async function fetchMillData() {
       try {
         const rice_deposti_data = await axios.get(
-          "https://mill.dappfolk.com:3000/rice-truck-transporter-ware-house",
+          `${apiBaseUrl}/rice-truck-transporter-ware-house`,
           {
             headers: {
               "api-key": apiKey,
@@ -92,7 +93,7 @@ const Ricedeposit = () => {
     async function fetchwarehouseid() {
       try {
         const warehouse = await axios.get(
-          `https://mill.dappfolk.com:3000/ware-house-data/${RicedepositData.ware_house_id}`,
+          `${apiBaseUrl}/ware-house-data/${RicedepositData.ware_house_id}`,
           {
             headers: {
               "api-key": apiKey,
@@ -120,7 +121,7 @@ const Ricedeposit = () => {
     async function fetchtrucktransporter() {
       try {
         const rice_do_number = await axios.get(
-          `https://mill.dappfolk.com:3000/truck-transporter/${RicedepositData.transporter_name_id}`,
+          `${apiBaseUrl}/truck-transporter/${RicedepositData.transporter_name_id}`,
           {
             headers: {
               "api-key": apiKey,
@@ -161,7 +162,7 @@ const Ricedeposit = () => {
     // console.log(RicedepositData);
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/rice-deposite/",
+        `${apiBaseUrl}/rice-deposite/`,
         RicedepositData,
         {
           headers: {

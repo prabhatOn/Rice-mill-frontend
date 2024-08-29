@@ -8,6 +8,7 @@ import Inputbox from "../inputelement/Inputbox";
 const capitalizeFirstLetter = (str) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
+
 const Dalalidhan = () => {
   const [selectedPaddyType, setSelectedPaddyType] = useState("white_sarna");
 
@@ -69,17 +70,19 @@ const Dalalidhan = () => {
 
   const [kochiaData, setkochiaData] = useState([]);
   const [trucks, setTrucks] = useState([]);
+  const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   useEffect(() => {
-    const apiKey = import.meta.env.VITE_API_KEY;
+    
     async function fetchData() {
       try {
         const [kochiaResponse, truckResponse] = await Promise.all([
-          axios.get("https://mill.dappfolk.com:3000/kochia-data", {
+          axios.get(`${apiBaseUrl}/kochia-data`, {
             headers: {
               "api-key": apiKey,
             },
           }),
-          axios.get("https://mill.dappfolk.com:3000/trucks/", {
+          axios.get(`${apiBaseUrl}/trucks/`, {
             headers: {
               "api-key": apiKey,
             },
@@ -125,7 +128,7 @@ const Dalalidhan = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/dalali-dhaan",
+        `${apiBaseUrl}/dalali-dhaan`,
         DalaliData,
         {
           headers: {

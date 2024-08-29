@@ -26,11 +26,12 @@ const Add_Warehouse = () => {
     });
   };
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/ware-house-transporting/",
+        `${apiBaseUrl}/ware-house-transporting/`,
         Addwarehouse,
         {
           headers: {

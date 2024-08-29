@@ -2,10 +2,11 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 function View_Cash_In_Out() {
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const [data, setdata] = useState([]);
   useEffect(() => {
     axios
-      .get("https://mill.dappfolk.com:3000/cash-in-out-data", {
+      .get(`${apiBaseUrl}/cash-in-out-data`, {
         headers: {
           "api-key": apiKey,
         },

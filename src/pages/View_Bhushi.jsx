@@ -2,11 +2,12 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 function View_Bhushi() {
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const [data, setdata] = useState([]);
 
   useEffect(() => {
     axios
-      .get("https://mill.dappfolk.com:3000/other-bhushi-data", {
+      .get(`${apiBaseUrl}/other-bhushi-data`, {
         headers: {
           "api-key": apiKey,
         },
@@ -26,7 +27,7 @@ function View_Bhushi() {
       <div className="sm:flex sm:items-center">
         <div className="sm:flex-auto">
           <h1 className="text-base font-semibold leading-6 text-gray-900">
-            Bran Jawak
+            Bhushi
           </h1>
           <p className="mt-2 text-sm text-gray-700">
             A table of placeholder stock market data that does not make any
