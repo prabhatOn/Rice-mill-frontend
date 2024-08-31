@@ -12,16 +12,23 @@ const Dhanricesocietiesrate = () => {
 
   // Fetch data for the "Society" dropdown
   const [societies, setSocieties] = useState([]);
+  const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   useEffect(() => {
     async function fetchsociety() {
       try {
         const society_response = await axios.get(
-          "https://mill.dappfolk.com:3000/societies/"
+          `${apiBaseUrl}/societies/`,
+          {
+            headers: {
+              "api-key": apiKey,
+            },
+          }
         );
 
         const data = society_response.data;
         setSocieties(data);
-        console.log(data);
+        // console.log(data);
       } catch (error) {
         console.error("Error:", error);
       }
@@ -40,15 +47,15 @@ const Dhanricesocietiesrate = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(DhanricesocietiesrateData);
+    // console.log(DhanricesocietiesrateData);
 
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/dhan-rice-societies-rate",
+        `${apiBaseUrl}/dhan-rice-societies-rate`,
         DhanricesocietiesrateData,
         {
           headers: {
-            "Content-Type": "application/json",
+            "api-key": apiKey,
           },
         }
       );

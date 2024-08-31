@@ -21,7 +21,7 @@ function View_Dhan_Awak() {
   }, []);
 
   // Log the data, not the setdata function
-    console.log(data);
+    // console.log(data);
   return (
     <div className="px-4 sm:px-6 lg:px-8">
       <div className="sm:flex sm:items-center">

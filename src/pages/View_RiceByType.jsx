@@ -23,7 +23,7 @@ function View_PaddyByType() {
     async function fetchData() {
       try {
         const Ricemil_response = await axios.get(
-          `${apiBaseUrl}/View_RiceMill`,
+          `${apiBaseUrl}/rice-mill`,
           {
             headers: {
               "api-key": apiKey,
@@ -53,7 +53,7 @@ function View_PaddyByType() {
     async function fetchMillData() {
       try {
         const All_Mix_Data_response = await axios.get(
-          `${apiBaseUrl}s/rice-data/${Riceid.select_mill_id}`,
+          `${apiBaseUrl}/rice-data/${Riceid.select_mill_id}`,
           {
             headers: {
               "api-key": apiKey,

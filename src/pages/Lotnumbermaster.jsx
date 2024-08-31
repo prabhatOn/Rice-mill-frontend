@@ -11,16 +11,23 @@ const Lotnumbermaster = () => {
 
   // Fetch data for the "Select Rice Mill" dropdown
   const [millData, setmillData] = useState([]);
+  const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   useEffect(() => {
     async function fetchMillData() {
       try {
         const Mill_response = await axios.get(
-          "https://mill.dappfolk.com:3000/rice-mill"
+          `${apiBaseUrl}/rice-mill`,
+          {
+            headers: {
+              "api-key": apiKey,
+            },
+          }
         );
 
         const data = Mill_response.data;
         setmillData(data);
-        console.log(data);
+        // console.log(data);
       } catch (error) {
         console.error("Error:", error);
       }
@@ -40,15 +47,15 @@ const Lotnumbermaster = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(lotnumbermasterData);
+    // console.log(lotnumbermasterData);
 
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/lot-number-master",
+        `${apiBaseUrl}/lot-number-master`,
         lotnumbermasterData,
         {
           headers: {
-            "Content-Type": "application/json",
+            "api-key": apiKey,
           },
         }
       );
