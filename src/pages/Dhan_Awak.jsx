@@ -202,8 +202,13 @@ const Dhan_Awak = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(DhanAwakData);
-
+  
+    // Log the values and their types
+    console.log("DhanAwakData:", DhanAwakData);
+    Object.keys(DhanAwakData).forEach(key => {
+      // console.log(`${key}: ${DhanAwakData[key]} (Type: ${typeof DhanAwakData[key]})`);
+    });
+  
     try {
       const response = await fetch(`${apiBaseUrl}/dhan-awak`, {
         method: "POST",
@@ -211,10 +216,10 @@ const Dhan_Awak = () => {
           "Content-Type": "application/json",
           "api-key": apiKey,
         },
+        body: JSON.stringify(DhanAwakData), // Ensure data is sent
       });
-
+  
       if (response.ok) {
-        // console.log("Form data sent successfully");
         toast.success("Form data added successfully", {
           position: "top-right",
           autoClose: 3000,
@@ -226,7 +231,8 @@ const Dhan_Awak = () => {
         });
         resetForm();
       } else {
-        console.error("Failed to send form data");
+        const errorData = await response.json();
+        console.error("Failed to send form data:", errorData);
         toast.error("Failed to send form data", {
           position: "top-right",
           autoClose: 3000,
@@ -250,6 +256,7 @@ const Dhan_Awak = () => {
       });
     }
   };
+  
 
   return (
     <>
@@ -507,8 +514,8 @@ const Dhan_Awak = () => {
                     <input
                       disabled
                       value={
-                        (DhanAwakData.number_of_bags =
-                          DhanAwakData.dm_weight * 2.5)
+                        ((DhanAwakData.number_of_bags =
+                          DhanAwakData.dm_weight * 2.5)).toFixed(2)
                       }
                       onChange={handleInputChange}
                       type="number"
@@ -976,7 +983,7 @@ const Dhan_Awak = () => {
                     <input
                       value={DhanAwakData.bags_put_in_hopper}
                       onChange={handleInputChange}
-                      type="text"
+                      type="number"
                       name="bags_put_in_hopper"
                       className="block min-w-[250px] w-full px-1.5 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />
@@ -1008,7 +1015,7 @@ const Dhan_Awak = () => {
                     <input
                       value={DhanAwakData.bags_put_in_stack}
                       onChange={handleInputChange}
-                      type="text"
+                      type="number"
                       name="bags_put_in_stack"
                       className="block min-w-[250px] w-full px-1.5 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     />

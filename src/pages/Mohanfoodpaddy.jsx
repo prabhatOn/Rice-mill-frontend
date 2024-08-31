@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 const Mohanfoodpaddy = () => {
   const [mohanfoodpaddyData, setmohanfoodpaddyData] = useState({
     do_number_id: "",
+    date: "",
     samiti: "",
     rice_mill_name_id: "",
     weight: 0,
@@ -25,11 +26,18 @@ const Mohanfoodpaddy = () => {
     pds: 0,
   });
   const [doData, setdoData] = useState([]);
+  const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   useEffect(() => {
     async function fetchData() {
       try {
         const response = await axios.get(
-          "https://mill.dappfolk.com:3000/add-do-data"
+          `${apiBaseUrl}/add-do-data`,
+          {
+            headers: {
+              "api-key": apiKey,
+            },
+          }
         );
         const data = response.data;
         setdoData(data);
@@ -46,7 +54,12 @@ const Mohanfoodpaddy = () => {
     async function fetchMillData() {
       try {
         const Mill_response = await axios.get(
-          "https://mill.dappfolk.com:3000/rice-mill"
+          `${apiBaseUrl}/rice-mill`,
+          {
+            headers: {
+              "api-key": apiKey,
+            },
+          }
         );
 
         const data = Mill_response.data;
@@ -65,7 +78,12 @@ const Mohanfoodpaddy = () => {
     async function fetchTransporter() {
       try {
         const transporter_response = await axios.get(
-          "https://mill.dappfolk.com:3000/trucks/"
+          `${apiBaseUrl}/trucks/`,
+          {
+            headers: {
+              "api-key": apiKey,
+            },
+          }
         );
 
         const data = transporter_response.data;
@@ -83,7 +101,12 @@ const Mohanfoodpaddy = () => {
     async function fetchData() {
       try {
         const transporter_response = await axios.get(
-          "https://mill.dappfolk.com:3000/transporters/"
+          `${apiBaseUrl}/transporters/`,
+          {
+            headers: {
+              "api-key": apiKey,
+            },
+          }
         );
 
         const data = transporter_response.data;
@@ -106,15 +129,15 @@ const Mohanfoodpaddy = () => {
     });
   };
   const handleSubmit = async (e) => {
-    console.log(mohanfoodpaddyData);
+    // console.log(mohanfoodpaddyData);
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/mohan-food-paddy",
+        `${apiBaseUrl}/mohan-food-paddy`,
         mohanfoodpaddyData,
         {
           headers: {
-            "Content-Type": "application/json",
+            "api-key": apiKey,
           },
         }
       );
@@ -204,6 +227,25 @@ const Mohanfoodpaddy = () => {
                       </p>
                     </div>
                   </div>
+                  <div>
+                  <div className="flex justify-between">
+                    <label
+                      htmlFor="date"
+                      className="block text-sm font-medium leading-6 text-gray-900"
+                    >
+                      Date
+                    </label>
+                  </div>
+                  <div className="mt-1">
+                    <input
+                      value={mohanfoodpaddyData.date}
+                      onChange={handleInputChange}
+                      type="date"
+                      name="date"
+                      className="block min-w-[250px] px-1.5 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    />
+                  </div>
+                </div>
                 </div>
                 <div className="flex justify-between m-3">
                   <div>

@@ -6,17 +6,19 @@ import SelectInput from "../inputelement/Selectinput";
 import Inputbox from "../inputelement/Inputbox";
 const Paddysales = () => {
   const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   const [paddysalesData, setpaddysalesData] = useState({
     rst_number_id: "",
-    party: "",
+    party_id: "",
     date: "",
     rice_mill_name_id: "",
     broker: "",
     loading_form_address: "",
-    vehicle_number_id: "",
+    truck_number_id: "",
     paddy_name: "",
     party_weight: 0,
     weight: "",
+    bags: "",
     rate: 0,
     ammount: 0,
     plastic: 0,
@@ -31,7 +33,7 @@ const Paddysales = () => {
     async function fetchMillData() {
       try {
         const All_data = await axios.get(
-          "https://mill.dappfolk.com:3000/rice-truck-party-brokers",
+          `${apiBaseUrl}/rice-truck-party-brokers`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -42,7 +44,7 @@ const Paddysales = () => {
 
         const data = All_data.data;
         setAlldata(data);
-        // console.log(data);
+        console.log(data);
       } catch (error) {
         console.error("Error:", error);
       }
@@ -79,7 +81,7 @@ const Paddysales = () => {
     async function fetchTransporter() {
       try {
         const transporter_response = await axios.get(
-          "https://mill.dappfolk.com:3000/trucks/",
+          `${apiBaseUrl}/trucks/`,
           {
             headers: {
               "Content-Type": "application/json",
@@ -110,7 +112,7 @@ const Paddysales = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/paddy-sale",
+        `${apiBaseUrl}/paddy-sale`,
         paddysalesData,
         {
           headers: {
@@ -246,7 +248,7 @@ const Paddysales = () => {
                   </div>
                 </div>
                 <div className="flex justify-between my-3 flex-wrap">
-                  <div>
+                  {/* <div>
                     <div className="flex justify-between">
                       <label
                         htmlFor="party"
@@ -265,8 +267,41 @@ const Paddysales = () => {
                         onChange={handleInputChange}
                       />
                     </div>
-                  </div>
-                  <div>
+                  </div> */}
+                  <SelectInput
+                  label="Party"
+                  name="party_id"
+                  options={
+                    Alldata.party_data &&
+                    Alldata.party_data.map((option) => ({
+                      label: option.party_name,
+                      value: option.party_id,
+                    }))
+                  }
+                  value={
+                    paddysalesData.party_id
+                      ? {
+                          label: Alldata.party_data.find(
+                            (option) =>
+                              option.party_id ===
+                              paddysalesData.party_id
+                          ).party_name,
+                          value: paddysalesData.party_id,
+                        }
+                      : null
+                  }
+                  onChange={(selectedOption) =>
+                    handleInputChange({
+                      target: {
+                        name: "party_id",
+                        value: selectedOption ? selectedOption.value : "",
+                      },
+                    })
+                  }
+                  placeholder="Select Party"
+                />
+
+                  {/* <div>
                     <div className="flex justify-between">
                       <label
                         htmlFor="broker"
@@ -285,11 +320,42 @@ const Paddysales = () => {
                         onChange={handleInputChange}
                       />
                     </div>
-                  </div>
+                  </div> */}
+                  <SelectInput
+                    label="Broker"
+                    name="broker"
+                    options={
+                      Alldata.brokers_data &&
+                      Alldata.brokers_data.map((option) => ({
+                        label: option.broker_name,
+                        value: option.broker_id,
+                      }))
+                    }
+                    value={
+                      paddysalesData.broker
+                        ? {
+                            label: Alldata.brokers_data?.find(
+                              (option) => option.broker_id === paddysalesData.broker // Assuming matching by broker_id
+                            )?.broker_name || 'Unknown', // Default to 'Unknown' if broker_name is undefined
+                            value: paddysalesData.broker,
+                          }
+                        : null
+                    }
+                    onChange={(selectedOption) =>
+                      handleInputChange({
+                        target: {
+                          name: "broker",
+                          value: selectedOption ? selectedOption.value : "",
+                        },
+                      })
+                    }
+                    placeholder="Select broker"
+                  />
+
                 </div>
                 <div className="my-2.5">
                   <label
-                    htmlFor="vehicle_number_id"
+                    htmlFor="truck_number_id"
                     className="block text-sm font-medium leading-6 text-gray-900"
                   >
                     truck Number
@@ -297,9 +363,9 @@ const Paddysales = () => {
 
                   <div className="mt-1">
                     <select
-                      name="vehicle_number_id"
+                      name="truck_number_id"
                       type="number"
-                      value={paddysalesData.vehicle_number_id}
+                      value={paddysalesData.truck_number_id}
                       className=" bg-white block w-full px-1.5 rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                       onChange={handleInputChange}
                     >
@@ -400,7 +466,7 @@ const Paddysales = () => {
                   <div>
                     <div className="flex justify-between">
                       <label
-                        htmlFor="party_weight"
+                        htmlFor="bags"
                         className="block text-sm font-medium leading-6 text-gray-900"
                       >
                         Bags
@@ -410,9 +476,9 @@ const Paddysales = () => {
                       <input
                         // required
                         type="number"
-                        name="party_weight"
+                        name="bags"
                         className="block min-w-[250px] w-full rounded-md border-0 px-1.5 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                        value={paddysalesData.party_weight}
+                        value={paddysalesData.bags}
                         onChange={handleInputChange}
                       />
                     </div>

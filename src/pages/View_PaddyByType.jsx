@@ -11,7 +11,7 @@ function View_PaddyByType() {
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    console.log(value);
+    // console.log(value);
     setRiceid((prevRiceid) => ({
       ...prevRiceid,
       [name]: value,
@@ -23,7 +23,7 @@ function View_PaddyByType() {
     async function fetchData() {
       try {
         const Ricemil_response = await axios.get(
-          `${apiBaseUrl}/View_RiceMill` ,
+          `${apiBaseUrl}/rice-mill` ,
           {
             headers: {
               "api-key": apiKey,
@@ -54,7 +54,7 @@ function View_PaddyByType() {
     async function fetchMillData() {
       try {
         const All_Mix_Data_response = await axios.get(
-          `https://mill.dappfolk.com:3000/paddy-data/${Riceid.select_mill_id}`,
+          `${apiBaseUrl}/paddy-data/${Riceid.select_mill_id}`,
           {
             headers: {
               "api-key": apiKey,
@@ -64,7 +64,7 @@ function View_PaddyByType() {
 
         const responseData = All_Mix_Data_response.data;
         setData(responseData);
-        console.log(responseData);
+        // console.log(responseData);
       } catch (error) {
         console.error("Error:", error);
         // Set default values or handle the error appropriately

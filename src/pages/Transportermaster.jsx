@@ -15,11 +15,18 @@ const Transportermaster = () => {
 
   // Fetch data for the "Select transporter" dropdown
   const [transpoterOptions, setTransporterOptions] = useState([]);
+  const apiKey = import.meta.env.VITE_API_KEY;
+  const apiBaseUrl = import.meta.env.VITE_API_BASE_URL;
   useEffect(() => {
     async function fetchData() {
       try {
         const transporter_response = await axios.get(
-          "https://mill.dappfolk.com:3000/transporters/"
+          `${apiBaseUrl}/transporters/`,
+          {
+            headers: {
+              "api-key": apiKey,
+            },
+          }
         );
 
         const data = transporter_response.data;
@@ -39,7 +46,12 @@ const Transportermaster = () => {
     async function fetchTransporter() {
       try {
         const transporter_response = await axios.get(
-          "https://mill.dappfolk.com:3000/trucks/"
+          `${apiBaseUrl}/trucks/`,
+          {
+            headers: {
+              "api-key": apiKey,
+            },
+          }
         );
 
         const data = transporter_response.data;
@@ -63,23 +75,28 @@ const Transportermaster = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(transportermasteData);
-
+    // console.log(transportermasteData);
+  
     try {
       const response = await axios.post(
-        "https://mill.dappfolk.com:3000/transporter-master/",
-        transportermasteData
+        `${apiBaseUrl}/transporter-master/`,
+        transportermasteData, // Move data here
+        {
+          headers: {
+            "api-key": apiKey,
+          },
+        }
       );
-
-      console.log(response.data);
-
+  
+      // console.log(response.data);
+  
       if (response.status === 201) {
         console.log("Transporter Master added successfully");
         toast.success("Transporter Master added successfully", {
           autoClose: 2000,
         });
       } else {
-        console.error("Failed to add Transporter Masterk");
+        console.error("Failed to add Transporter Master");
         toast.error("Failed to add Transporter Master");
       }
     } catch (error) {
@@ -87,6 +104,7 @@ const Transportermaster = () => {
       toast.error("An error occurred");
     }
   };
+  
 
   return (
     <>
